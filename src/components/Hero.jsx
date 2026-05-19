@@ -20,7 +20,7 @@ const Hero = () => {
         "--secondary-main": theme.palette.secondary.main,
         "--light-matcha": theme.palette.custom.lightMatcha,
         "--light-strawberry": theme.palette.custom.lightStrawberry,
-        "--text-parchment": "#F9F7F2",
+        "--text-parchment": theme.palette.text.primary,
       }}
     >
       <Container maxWidth="lg">

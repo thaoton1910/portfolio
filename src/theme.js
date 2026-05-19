@@ -18,9 +18,12 @@ export const theme = createTheme({
       main: "#fc9fb1", // Vibrant Strawberry Pink for accents, borders, and interaction states
     },
     background: {
-      default: "#ffffff",
-      paper: "#ffffff",
+      default: "#F9F7F2",
+      paper: "#F9F7F2",
     },
+    text: {
+      primary: "#F9F7F2", // Dark Charcoal for main text
+    }
     custom: {
       lightMatcha: "#b9dca9",
       lightStrawberry: "#fcbacb",

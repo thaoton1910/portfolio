@@ -41,7 +41,7 @@ const Navbar = () => {
       style={{
         "--primary-main": theme.palette.primary.main,
         "--secondary-main": theme.palette.secondary.main,
-        "--nav-text": "#F9F7F2",
+        "--nav-text": theme.palette.text.primary,
         backgroundColor: "var(--primary-main)",
       }}
     >
@@ -89,7 +89,7 @@ const Navbar = () => {
           paper: {
             sx: {
               bgcolor: "primary.main",
-              color: "#F9F7F2",
+              color: theme.palette.text.primary,
               width: 150,
               borderLeft: `3px solid ${theme.palette.secondary.main}`,
             },
