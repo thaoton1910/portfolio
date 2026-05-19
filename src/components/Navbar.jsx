@@ -89,12 +89,9 @@ const Navbar = () => {
           paper: {
             sx: {
               bgcolor: "primary.main",
-              color:
-                theme.palette.primary.main === "#f2efde"
-                  ? "primary.dark"
-                  : "#ffffff",
+              color: "#F9F7F2",
               width: 150,
-              borderLeft: "3px solid #B87F0D",
+              borderLeft: `3px solid ${theme.palette.secondary.main}`,
             },
           },
         }}
