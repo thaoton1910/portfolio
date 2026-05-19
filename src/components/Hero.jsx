@@ -38,12 +38,10 @@ const Hero = () => {
         <Grid
           container
           spacing={4}
-          alignItems="center"
-          justifyContent="center"
           className="hero-grid-container"
         >
           {/* Left Side: Avatar */}
-          <Grid item xs={12} md={5} className="hero-avatar-zone">
+          <Grid xs={12} md={5} className="hero-avatar-zone">
             <Box className="avatar-frame">
               <img
                 src={avatar}
@@ -54,7 +52,7 @@ const Hero = () => {
           </Grid>
 
           {/* Right Side: Content */}
-          <Grid item xs={12} md={7} className="hero-text-zone">
+          <Grid xs={12} md={7} className="hero-text-zone">
             <Typography variant="h1" className="hero-title">
               Ton Nu Thanh Thao
             </Typography>
@@ -85,7 +83,7 @@ const Hero = () => {
               >
                 <LinkedInIcon />
               </IconButton>
-              
+
               <IconButton
                 component={Link}
                 href="https://github.com/thaoton1910"

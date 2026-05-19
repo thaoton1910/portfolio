@@ -24,8 +24,8 @@
 }
 
 .nav-link:hover {
-  color: var(--secondary-main) !important;
-  background-color: color-mix(in srgb, var(--secondary-main), transparent 90%) !important;
+  color: var(--primary-dark) !important;
+  background-color: color-mix(in srgb, var(--light-matcha), transparent 95%) !important;
 }
 
 .navbar-root .MuiButton-root {
@@ -34,7 +34,7 @@
 
 /* Fix for Mobile Drawer hover text */
 .MuiListItemButton-root:hover .nav-link {
-  color: var(--secondary-main) !important;
+  color: var(--primary-dark) !important;
 }
 
 @media (max-width: 600px) {

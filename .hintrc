@@ -7,7 +7,7 @@
       "default",
       {
         "ignore": [
-          "background-color: color-mix(in srgb, var(--secondary-main), transparent 90%)",
+          "background-color: color-mix(in srgb, var(--light-matcha), transparent 95%)",
           "background-color: color-mix(in srgb, var(--light-matcha) 30%, transparent)",
           "background-color: color-mix(in srgb, var(--light-strawberry) 30%, transparent)"
         ]

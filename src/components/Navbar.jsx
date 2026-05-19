@@ -40,8 +40,11 @@ const Navbar = () => {
       className="navbar-root"
       style={{
         "--primary-main": theme.palette.primary.main,
+        "--primary-dark": theme.palette.primary.dark,
         "--secondary-main": theme.palette.secondary.main,
-        "--nav-text": theme.palette.text.light,
+        "--nav-text": theme.palette.text.dark,
+        "--light-matcha": theme.palette.custom.lightMatcha,
+        "--light-strawberry": theme.palette.custom.lightStrawberry,
         backgroundColor: "var(--primary-main)",
       }}
     >
@@ -70,10 +73,13 @@ const Navbar = () => {
 
           {/* Mobile Hamburger */}
           <IconButton
-            color="inherit"
             aria-label="Open Drawer"
             onClick={handleDrawerToggle}
-            sx={{ display: { md: "none" } }}
+            sx={{
+              display: { md: "none" },
+              color:
+                "var(--nav-text) !important",
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -89,7 +95,7 @@ const Navbar = () => {
           paper: {
             sx: {
               bgcolor: "primary.main",
-              color: theme.palette.text.primary,
+              color: theme.palette.text.dark,
               width: 150,
               borderLeft: `3px solid ${theme.palette.secondary.main}`,
             },
