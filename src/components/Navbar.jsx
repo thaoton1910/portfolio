@@ -41,10 +41,7 @@ const Navbar = () => {
       style={{
         "--primary-main": theme.palette.primary.main,
         "--secondary-main": theme.palette.secondary.main,
-        "--nav-text":
-          theme.palette.primary.main === "#f2efde"
-            ? theme.palette.primary.dark
-            : "#ffffff",
+        "--nav-text": "#F9F7F2",
         backgroundColor: "var(--primary-main)",
       }}
     >
