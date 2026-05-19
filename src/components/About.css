@@ -131,31 +131,6 @@
   color: #555 !important;
 }
 
-/* 6. Action Buttons */
-.about-actions {
-  display: flex !important;
-  gap: 15px !important;
-  margin-top: 1rem !important;
-}
-
-.about-btn-primary {
-  background-color: var(--primary-main) !important;
-  color: var(--text-button) !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  padding: 10px 24px !important;
-  text-transform: uppercase !important;
-}
-
-.about-btn-secondary {
-  border: 1px solid var(--primary-dark) !important;
-  color: var(--primary-dark) !important;
-  border-radius: 0 !important;
-  font-weight: 700 !important;
-  padding: 10px 24px !important;
-  text-transform: uppercase !important;
-}
-
 @media (max-width: 1024px) {
   .about-root {
     padding: 60px 0 !important;
@@ -188,7 +163,7 @@
   }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .about-actions {
     flex-direction: column !important;
     gap: 10px !important;
@@ -200,4 +175,4 @@
     width: 100% !important;
     text-align: center !important;
   }
-}
+} */

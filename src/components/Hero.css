@@ -7,7 +7,7 @@
     color-mix(in srgb, var(--primary-dark), transparent 5%) 0%,
     color-mix(in srgb, var(--primary-main), transparent 1%) 100%
   ) !important;
-  color: var(--text-parchment) !important;
+  color: var(--light-text) !important;
   padding: 75px 0 !important;
   text-align: center !important;
   border-bottom: 6px solid var(--secondary-main) !important;
@@ -96,17 +96,42 @@
   line-height: 1.6 !important;
 }
 
-.hero-button {
+.hero-btn {
   border-radius: 8px !important;
   padding: 14px 40px !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
   background-color: var(--secondary-main) !important;
+  color: #333333 !important;
+}
+
+.hero-btn:hover {
+  background-color: var(--light-strawberry) !important;
   color: var(--primary-dark) !important;
 }
 
-.hero-button:hover {
+.hero-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  margin-top: 1rem !important;
+}
+
+.hero-btn-icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 8px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--light-text, #ffffff) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.hero-btn-icon:hover {
   background-color: var(--light-strawberry) !important;
+  border-color: var(--secondary-main) !important;
+  color: var(--primary-dark, #333333) !important;
+  transform: translateY(-2px);
 }
 
 /* Tablet breakpoint: start scaling avatar on tablet widths */
@@ -162,5 +187,31 @@
 
   .hero-subtitle {
     font-size: clamp(1.2rem, 4vw, 1.35rem) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-actions {
+    display: grid !important;
+    /* Creates a 3-column structural track layout */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 12px !important;
+    max-width: 200px; /* Locks the boundary size so the layout stays crisp */
+    margin: 1.5rem auto 0 auto !important;
+  }
+
+  .hero-btn {
+    /* Spans across all 3 grid columns cleanly, matching row 2 exactly */
+    grid-column: span 3 !important; 
+    width: 100% !important;
+    padding: 14px 0 !important; /* Standardize vertical breathing room */
+    text-align: center;
+  }
+
+  .hero-btn-icon {
+    /* Allows the icons to fluidly scale to fill their individual grid slots */
+    width: 100% !important; 
+    /* height: 72px !important; Slightly elevated boxy look for structural balance */
+    aspect-ratio: 1 / 1 !important; /* Maintains strict squareness */
   }
 }

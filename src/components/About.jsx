@@ -87,34 +87,6 @@ const About = () => {
                 and <strong>PowerShell</strong>.
               </li>
             </Box>
-
-            <Box className="about-actions">
-              <Button
-                variant="contained"
-                className="about-btn-primary"
-                href={`${import.meta.env.BASE_URL}Ton-Nu-Thanh-Thao-resume.pdf`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Resume
-              </Button>
-              <Button
-                variant="outlined"
-                className="about-btn-secondary"
-                href="https://github.com/thaton1910"
-                target="_blank"
-              >
-                GitHub
-              </Button>
-              <Button
-                variant="outlined"
-                className="about-btn-secondary"
-                href="https://www.linkedin.com/in/ton-nu-thanh-thao/"
-                target="_blank"
-              >
-                LinkedIn
-              </Button>
-            </Box>
           </Grid>
 
           {/* Right Column: Stats Cards */}

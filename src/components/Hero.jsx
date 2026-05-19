@@ -1,6 +1,17 @@
 import React from "react";
-import { Box, Container, Typography, Button, Grid } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Grid,
+  IconButton,
+  Link,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 import "./Hero.css";
 
@@ -20,24 +31,24 @@ const Hero = () => {
         "--secondary-main": theme.palette.secondary.main,
         "--light-matcha": theme.palette.custom.lightMatcha,
         "--light-strawberry": theme.palette.custom.lightStrawberry,
-        "--text-parchment": theme.palette.text.light,
+        "--light-text": theme.palette.text.light,
       }}
     >
       <Container maxWidth="lg">
-        <Grid 
-          container 
-          spacing={4} 
-          alignItems="center" 
+        <Grid
+          container
+          spacing={4}
+          alignItems="center"
           justifyContent="center"
           className="hero-grid-container"
         >
           {/* Left Side: Avatar */}
           <Grid item xs={12} md={5} className="hero-avatar-zone">
             <Box className="avatar-frame">
-              <img 
-                src={avatar} 
-                alt="Ton Nu Thanh Thao" 
-                className="avatar-image" 
+              <img
+                src={avatar}
+                alt="Ton Nu Thanh Thao"
+                className="avatar-image"
               />
             </Box>
           </Grid>
@@ -54,14 +65,45 @@ const Hero = () => {
               Ex-Technical Documentation Intern | Bosch Vietnam
             </Typography>
 
-            <Button
-              variant="contained"
-              size="large"
-              className="hero-button"
-              href="mailto:thaoton1910@gmail.com"
-            >
-              Get in Touch
-            </Button>
+            <Box className="hero-actions">
+              <Button
+                variant="contained"
+                className="hero-btn"
+                href={`${import.meta.env.BASE_URL}Ton-Nu-Thanh-Thao-resume.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </Button>
+
+              <IconButton
+                component={Link}
+                href="https://www.linkedin.com/in/ton-nu-thanh-thao/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-btn-icon"
+              >
+                <LinkedInIcon />
+              </IconButton>
+              
+              <IconButton
+                component={Link}
+                href="https://github.com/thaoton1910"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-btn-icon"
+              >
+                <GitHubIcon />
+              </IconButton>
+
+              <IconButton
+                component={Link}
+                href="mailto:thaoton1910@gmail.com"
+                className="hero-btn-icon"
+              >
+                <EmailIcon />
+              </IconButton>
+            </Box>
           </Grid>
         </Grid>
       </Container>
