@@ -11,6 +11,7 @@ import PaletteIcon from "@mui/icons-material/Palette";
 
 import { theme } from "./theme";
 
+import About from "./components/About";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -25,7 +26,9 @@ function App() {
       <Hero />
 
       <Box component="main">
-        
+        <Box id="about">
+          <About />
+        </Box>
       </Box>
     </ThemeProvider>
   )
