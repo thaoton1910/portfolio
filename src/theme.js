@@ -22,7 +22,8 @@ export const theme = createTheme({
       paper: "#F9F7F2",
     },
     text: {
-      primary: "#F9F7F2",
+      light: "#F9F7F2",
+      dark: "#333333",
     },
     custom: {
       lightMatcha: "#b9dca9",
