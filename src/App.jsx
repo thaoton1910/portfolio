@@ -11,6 +11,7 @@ import PaletteIcon from "@mui/icons-material/Palette";
 
 import { theme } from "./theme";
 
+import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -21,8 +22,10 @@ function App() {
       <CssBaseline />
 
       <Navbar />
+      <Hero />
+
       <Box component="main">
-        {/* Your app content goes here */}
+        
       </Box>
     </ThemeProvider>
   )
