@@ -22,7 +22,7 @@ export const theme = createTheme({
       paper: "#F9F7F2",
     },
     text: {
-      primary: "#F9F7F2", // Dark Charcoal for main text
+      primary: "#F9F7F2",
     },
     custom: {
       lightMatcha: "#b9dca9",
