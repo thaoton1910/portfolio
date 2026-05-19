@@ -11,11 +11,11 @@ const baseTypography = {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#74a12e", // Deep Matcha Green for primary headers, nav bars, and emphasis
-      dark: "#4c6e1a", // A deeper shade for clean text contrast on light backgrounds
+      main: "#A2BA5E", // Deep Matcha Green for primary headers, nav bars, and emphasis
+      dark: "#789048", // A deeper shade for clean text contrast on light backgrounds
     },
     secondary: {
-      main: "#fc9fb1", // Vibrant Strawberry Pink for accents, borders, and interaction states
+      main: "#FEADBB", // Vibrant Strawberry Pink for accents, borders, and interaction states
     },
     background: {
       default: "#F9F7F2",
@@ -27,7 +27,7 @@ export const theme = createTheme({
     },
     custom: {
       lightMatcha: "#b9dca9",
-      lightStrawberry: "#fcbacb",
+      lightStrawberry: "#f4c7d0",
     },
   },
   typography: baseTypography,
