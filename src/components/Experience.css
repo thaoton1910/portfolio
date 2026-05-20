@@ -1,0 +1,197 @@
+.exp-root {
+  background-color: var(--primary-dark) !important;
+  color: var(--text-light) !important;
+  overflow: hidden;
+  border-bottom: 6px solid var(--secondary-main) !important;
+}
+
+.exp-header {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  color: var(--secondary-main) !important;
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+  text-align: center;
+  margin: 80px 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Timeline Container */
+.timeline-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.timeline-row {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+/* Date Styling (Desktop) */
+.date-column {
+  flex: 1;
+  text-align: right;
+  padding-right: 40px;
+  padding-top: 10px;
+}
+
+.timeline-date {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  color: var(--secondary-main) !important;
+  font-size: 1.1rem !important;
+  display: block;
+}
+
+.timeline-location {
+  font-family: 'Lora', serif !important;
+  font-size: 0.85rem !important;
+  color: color-mix(in srgb, var(--text-light), transparent 50%);
+  text-transform: uppercase;
+}
+
+/* Central Marker */
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+}
+
+.timeline-dot {
+  width: 42px;
+  height: 42px;
+  background-color: var(--secondary-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--secondary-main), transparent 60%);
+}
+
+.timeline-line {
+  width: 2px;
+  flex-grow: 1;
+  /* 0.3 opacity */
+  background-color: color-mix(in srgb, var(--secondary-main), transparent 70%);
+  margin: 10px 0;
+}
+
+/* Content Area */
+.timeline-content-wrapper {
+  flex: 2.5;
+  padding-left: 40px;
+  padding-bottom: 50px;
+}
+
+.timeline-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* 0.1 opacity */
+  border: 1px solid color-mix(in srgb, var(--secondary-main), transparent 90%);
+  padding: 25px 30px;
+  border-radius: 4px 30px 4px 4px;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: var(--secondary-main);
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(10px);
+}
+
+.job-title {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  color: var(--secondary-main) !important;
+}
+
+.job-company {
+  font-family: 'Lora', serif !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 15px !important;
+  /* Keeping 0.8 opacity for company name */
+  color: color-mix(in srgb, var(--text-light), transparent 20%);
+}
+
+.job-points {
+  padding-left: 20px;
+  list-style: none;
+  font-weight: 100 !important;
+}
+
+.job-points li {
+  font-family: 'Lora', serif !important;
+  font-size: 1.05rem;
+  font-weight: 100 !important;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.job-points li::before {
+  content: "»";
+  position: absolute;
+  left: -20px;
+  color: var(--secondary-main) !important;
+  font-weight: 700;
+}
+
+.job-link {
+  color: var(--secondary-main) !important;
+  text-decoration: none !important;
+  font-weight: 100 !important;
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(var(--secondary-main), var(--secondary-main));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.job-link:hover {
+  color: var(--secondary-main) !important;
+  background-size: 100% 1px;
+}
+
+.job-points i {
+  font-style: italic;
+  opacity: 0.8;
+  padding-right: 4px;
+}
+
+.mobile-date-info {
+  /* Default hidden on desktop */
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .date-column {
+    /* Hide the left column */
+    display: none;
+  }
+
+  .mobile-date-info {
+    display: block;
+    /* Show date above card */
+    margin-bottom: 10px;
+  }
+
+  .timeline-marker {
+    /* Slim down the line area */
+    width: 30px;
+  }
+
+  .timeline-content-wrapper {
+    padding-left: 20px;
+  }
+
+  .timeline-dot {
+    width: 35px;
+    height: 35px;
+  }
+}

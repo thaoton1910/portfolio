@@ -12,6 +12,7 @@ import PaletteIcon from "@mui/icons-material/Palette";
 import { theme } from "./theme";
 
 import About from "./components/About";
+import Experience from "./components/Experience";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -28,6 +29,10 @@ function App() {
       <Box component="main">
         <Box id="about">
           <About />
+        </Box>
+
+        <Box id="experience">
+          <Experience />
         </Box>
       </Box>
     </ThemeProvider>
