@@ -15,6 +15,7 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Projects from "./components/Projects";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -33,6 +34,10 @@ function App() {
 
         <Box id="experience">
           <Experience />
+        </Box>
+
+        <Box id="projects">
+          <Projects />
         </Box>
       </Box>
     </ThemeProvider>
