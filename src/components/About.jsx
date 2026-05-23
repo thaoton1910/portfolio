@@ -59,7 +59,7 @@ const About = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "flex-start",
-              width: { xs: "100%", md: "45%" },
+              width: { xs: "100%", md: "50%" },
             }}
           >
             <Typography variant="h2" className="about-name">
@@ -103,7 +103,7 @@ const About = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              width: { xs: "100%", md: "50%" },
+              width: { xs: "100%", md: "45%" },
             }}
           >
             <Box className="stats-container" sx={{ width: "100%" }}>
