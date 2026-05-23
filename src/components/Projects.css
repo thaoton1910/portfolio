@@ -114,13 +114,13 @@
   background-color: var(--light-strawberry) !important;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .projects-clean-grid {
     grid-template-columns: 1fr; /* Snaps safely to a clean single column view on phones */
     gap: 24px;
   }
   
   .project-card {
-    aspect-ratio: 16 / 10; /* Gives mobile cards a slightly wider structural layout */
+    aspect-ratio: 14 / 10; /* Gives mobile cards a slightly wider structural layout */
   }
 }
