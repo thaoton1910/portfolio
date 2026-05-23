@@ -7,7 +7,7 @@
 }
 
 .projects-main-title {
-  font-family: 'Cinzel', serif !important;
+  font-family: "Cinzel", serif !important;
   color: var(--primary-dark);
   font-weight: 700 !important;
   letter-spacing: 2px;
@@ -31,9 +31,10 @@
   border: 2px solid transparent !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              border-color 0.4s ease-in-out,
-              box-shadow 0.4s ease-in-out !important;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out !important;
 }
 
 .project-action-area {
@@ -50,7 +51,9 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: var(--light-matcha); /* Falling back onto her calming base tone */
+  background-color: var(
+    --light-matcha
+  ); /* Falling back onto her calming base tone */
 }
 
 .project-display-image {
@@ -75,7 +78,7 @@
 }
 
 .project-card-title {
-  font-family: 'Lora', serif !important;
+  font-family: "Lora", serif !important;
   color: var(--text-dark, #333333) !important;
   font-weight: 600 !important;
   font-size: clamp(0.9rem, 2vw, 1.15rem) !important;
@@ -86,7 +89,7 @@
 }
 
 .project-card-subtitle {
-  font-family: 'Lora', serif !important;
+  font-family: "Lora", serif !important;
   color: color-mix(in srgb, var(--text-dark, --primary-dark), transparent 15%) !important;
   font-weight: 400 !important;
   font-size: clamp(0.75rem, 1.4vw, 0.85rem) !important;
@@ -100,7 +103,9 @@
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: var(--secondary-main) !important; /* Highlighting via strawberry pink */
+  border-color: var(
+    --secondary-main
+  ) !important; /* Highlighting via strawberry pink */
   box-shadow: 0 16px 32px rgba(252, 159, 177, 0.25) !important; /* Soft strawberry ambient shadow glow */
 }
 
@@ -119,8 +124,17 @@
     grid-template-columns: 1fr; /* Snaps safely to a clean single column view on phones */
     gap: 24px;
   }
-  
+
   .project-card {
     aspect-ratio: 14 / 10; /* Gives mobile cards a slightly wider structural layout */
+  }
+
+  /* Adjusts the image and title banner proportions for mobile */
+  .project-image-wrapper {
+    height: 80% !important;
+  }
+
+  .project-title-banner {
+    height: 20% !important;
   }
 }
