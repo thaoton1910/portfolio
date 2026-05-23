@@ -56,7 +56,7 @@ const Contact = () => {
           <Grid item>
             <IconButton
               component={Link}
-              href="https://linkedin.com/in/khangvum"
+              href="https://linkedin.com/in/ton-nu-thanh-thao"
               target="_blank"
               className="contact-icon-btn"
             >
@@ -66,7 +66,7 @@ const Contact = () => {
           <Grid item>
             <IconButton
               component={Link}
-              href="mailto:manhkhang0305@gmail.com"
+              href="mailto:thaoton1910@gmail.com"
               className="contact-icon-btn"
             >
               <EmailIcon />
