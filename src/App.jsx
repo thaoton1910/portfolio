@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import {
   ThemeProvider,
   CssBaseline,
@@ -12,14 +11,13 @@ import PaletteIcon from "@mui/icons-material/Palette";
 import { theme } from "./theme";
 
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -39,9 +37,13 @@ function App() {
         <Box id="projects">
           <Projects />
         </Box>
+
+        <Box id="contact" component="footer">
+          <Contact />
+        </Box>
       </Box>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

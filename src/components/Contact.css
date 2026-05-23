@@ -1,0 +1,101 @@
+.contact-root {
+  background-color: var(--primary-dark) !important;
+  color: var(--text-light) !important;
+  padding: 90px 0 40px 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/stucco.png");
+  background-size: cover;
+  opacity: 0.15; /* Subtly textures the card area background layout grid */
+  pointer-events: none;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 45px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+  font-family: "Cinzel", serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary-main) !important;
+  margin-bottom: 16px !important;
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+}
+
+.contact-subtitle {
+  font-family: "Lora", serif !important;
+  max-width: 600px;
+  margin: 0 auto !important;
+  color: var(--text-light) !important;
+  font-style: italic;
+}
+
+.contact-links {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px !important;
+  justify-content: center !important;
+}
+
+.contact-icon-btn {
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 8px !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: var(--light-text, #ffffff) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* Smooth structural cubic curve */
+}
+
+.contact-icon-btn:hover {
+  background-color: var(--light-strawberry) !important;
+  border-color: var(--secondary-main) !important;
+  color: var(--primary-dark, #333333) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(252, 159, 177, 0.3) !important;
+}
+
+.contact-footer-note {
+  text-align: center;
+  border-top: 1.5px solid var(--secondary-main) !important;
+  padding-top: 30px;
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-footer-note .MuiTypography-caption {
+  font-family: "Cinzel", serif !important;
+  letter-spacing: 2px;
+  color: var(--text-light) !important;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 1.8rem !important;
+  }
+
+  .contact-root {
+    padding: 65px 0 30px 0 !important;
+  }
+
+  .contact-icon-btn {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
