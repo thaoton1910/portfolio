@@ -9,33 +9,25 @@ const Experience = () => {
   const theme = useTheme();
   const jobs = [
     {
-      title: "Technical Documentation Intern",
-      company: "Bosch Vietnam",
-      period: "Aug 2025 - Feb 2026",
+      title: "English Tutor",
+      company: "VUIHOC.vn",
+      period: "Aug 2025 - Present",
       location: "Ho Chi Minh City, Vietnam",
       points: [
-        "Text Goes Here",
-        {
-          text: "Text Goes Here",
-          linkText: "Link Text Goes Here",
-          linkUrl: "Link URL Goes Here",
-        },
-        "Text Goes Here",
+        "Taught English online in 1:1 and 1:4 classes for middle and primary school students via ClassIn software",
+        "Conducted 16 classes every week, and each class lasted 45 minutes",
+        "Provided brief feedback on student learning progress after each lesson",
       ],
     },
     {
-      title: "Job Title 2",
-      company: "Company Name 2",
+      title: "Technical Documentation Intern",
+      company: "Bosch Automotive R&D Center Vietnam",
       period: "Aug 2025 - Feb 2026",
       location: "Ho Chi Minh City, Vietnam",
       points: [
-        "Text Goes Here",
-        {
-          text: "Text Goes Here",
-          linkText: "Link Text Goes Here",
-          linkUrl: "Link URL Goes Here",
-        },
-        "Text Goes Here",
+        "Aided in analyzing 10,000 technical legal requirements and texts of the Indian and Brazilian markets, relevant to product development for Bosch mobility products in two technical topic areas (Safety and Security) ",
+        "Checked the new version and identified quality issues of 20+ relevant laws/regulations and standards of Brazil and Korea from the existing database",
+        "Developed user-friendly resources (Docupedia and a one-pager) that streamlined the team processes",
       ],
     },
   ];
