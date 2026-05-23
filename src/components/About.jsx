@@ -87,7 +87,7 @@ const About = () => {
 
             <Box component="ul" className="about-list">
               <li>
-                •Architect precision hardware systems using{" "}
+                • Architect precision hardware systems using{" "}
                 <strong>Altium</strong> for circuit design,{" "}
                 <strong>Autodesk Fusion 360</strong> for 3D modeling, and
                 hands-on <strong>circuit soldering/debugging</strong>.
