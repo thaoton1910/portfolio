@@ -10,13 +10,8 @@ const About = () => {
   const stats = [
     {
       label: "Cumulative GPA",
-      value: "4.20",
+      value: "3.76",
       detail: "Dean's Honour Roll | F2023, W2024, F2024, S2025",
-    },
-    {
-      label: "Co-op Terms",
-      value: "3",
-      detail: "Infrastructure & Networking, Operations, and Automation Testing",
     },
     {
       label: "Languages",
@@ -24,10 +19,15 @@ const About = () => {
       detail: "English, German, Chinese, and Vietnamese",
     },
     {
-      label: "International Awards",
-      value: "2",
+      label: "Internships",
+      value: "1",
+      detail: "Infrastructure & Networking, Operations, and Automation Testing",
+    },
+    {
+      label: "Scholarships",
+      value: "VALUE",
       detail:
-        "International Vietnam Language Excellence Entrance Award | CA$2000\nKaren L. Monahan International Award | CA$750",
+        "DETAIL",
     },
   ];
 
