@@ -66,25 +66,30 @@ const About = () => {
               About Me
             </Typography>
             <Typography variant="body1" className="about-bio">
-              A Human-Centered Engineering student at Fulbright University
-              with a specialized background in enterprise systems and
-              automation:
+              A Human-Centered Engineering senior at Fulbright University with a
+              specialized background in teaching children and developing
+              educational products:
             </Typography>
 
             <Box component="ul" className="about-list">
               <li>
-                • Engineer robust test suites using <strong>C#</strong>,{" "}
-                <strong>Selenium</strong>, and <strong>NUnit/MSTest</strong>.
+                •Architect precision hardware systems using{" "}
+                <strong>Altium</strong> for circuit design,{" "}
+                <strong>Autodesk Fusion 360</strong> for 3D modeling, and
+                hands-on <strong>circuit soldering/debugging</strong>.
               </li>
               <li>
-                • Architect hybrid infrastructure with <strong>Ansible</strong>,{" "}
-                <strong>Terraform</strong>, <strong>VMware ESXi</strong>, and{" "}
-                <strong>Hyper-V</strong>.
+                • Develop embedded and analytical applications with{" "}
+                <strong>C++</strong>, <strong>Python</strong>,{" "}
+                <strong>MATLAB</strong>, <strong>Arduino IDE</strong>, and the{" "}
+                <strong>Robot Operating System</strong> (<strong>ROS</strong>).
               </li>
               <li>
-                • Optimize enterprise operations via{" "}
-                <strong>Microsoft Intune</strong>, <strong>Entra ID</strong>,
-                and <strong>PowerShell</strong>.
+                • Configure and maintain engineering development environments
+                using <strong>Ubuntu</strong>,{" "}
+                <strong>Windows Subsystem for Linux</strong> (
+                <strong>WSL</strong>), and{" "}
+                <strong>VMware virtualization</strong>.
               </li>
             </Box>
           </Grid>
