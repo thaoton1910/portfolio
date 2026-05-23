@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Grid, Typography, Button } from "@mui/material";
+import { Box, Container, Grid, Typography, Button, Link } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import "./About.css";
@@ -11,23 +11,37 @@ const About = () => {
     {
       label: "Cumulative GPA",
       value: "3.76",
-      detail: "Dean's Honour Roll | F2023, W2024, F2024, S2025",
+      detail:
+        "Major: Human-Centered Engineering\nMinor: Applied-Mathematics & Computer Science ",
     },
     {
       label: "Languages",
       value: "4",
-      detail: "English, German, Chinese, and Vietnamese",
-    },
-    {
-      label: "Internships",
-      value: "1",
-      detail: "Infrastructure & Networking, Operations, and Automation Testing",
-    },
-    {
-      label: "Scholarships",
-      value: "VALUE",
       detail:
-        "DETAIL",
+        "English (Fluent), Chinese (Beginner), German (Beginner), and Vietnamese (Native)",
+    },
+    {
+      label: "Internship",
+      value: "1",
+      detail:
+        "Technical Documentation Intern | Bosch Automotive R&D Center Vietnam",
+    },
+    {
+      label: "Publications",
+      value: "1",
+      detail: (
+        <>
+          <Link
+            href="https://doi.org/10.1007/s11370-025-00650-w"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-publication-link"
+          >
+            Real-time recognition of human interactions from a single RGB-D
+            camera for socially-aware robot navigation
+          </Link>
+        </>
+      ),
     },
   ];
 
@@ -113,6 +127,7 @@ const About = () => {
                   <Box>
                     <Typography className="stat-label">{stat.label}</Typography>
                     <Typography
+                      component="div"
                       className="stat-detail"
                       sx={{ whiteSpace: "pre-line" }}
                     >
