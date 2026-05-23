@@ -107,7 +107,6 @@
 
 .hero-btn:hover {
   background-color: var(--light-strawberry) !important;
-  color: var(--primary-dark) !important;
 }
 
 .hero-actions {
@@ -210,8 +209,7 @@
 
   .hero-btn-icon {
     /* Allows the icons to fluidly scale to fill their individual grid slots */
-    width: 100% !important; 
-    /* height: 72px !important; Slightly elevated boxy look for structural balance */
+    width: 100% !important;
     aspect-ratio: 1 / 1 !important; /* Maintains strict squareness */
   }
 }
