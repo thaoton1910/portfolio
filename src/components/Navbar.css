@@ -24,7 +24,7 @@
 }
 
 .nav-link:hover {
-  color: var(--primary-dark) !important;
+  color: var(--secondary-main) !important;
   background-color: color-mix(in srgb, var(--light-matcha), transparent 95%) !important;
 }
 
