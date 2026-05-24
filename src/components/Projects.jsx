@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Container, Typography, Card, CardActionArea } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import {
+  Box,
+  Container,
+  Typography,
+  Card,
+  CardActionArea,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import "./Projects.css";
 
@@ -16,25 +23,25 @@ const Projects = () => {
       title: "Analog-Only Solar Panel",
       subtitle: "Auto Charging and Auto Tracing to Light Source",
       image: project1,
-      link: "https://github.com/thaoton1910/portfolio",
+      link: "/projects/analog-only_solar_panel",
     },
     {
       title: "Answer Files",
       subtitle: "Auto Charging and Auto Tracing to Light Source",
       image: project2,
-      link: "https://github.com/thaoton1910/portfolio",
+      link: "/projects/analog-only_solar_panel",
     },
     {
       title: "Expression Evaluator",
       subtitle: "Auto Charging and Auto Tracing to Light Source",
       image: project3,
-      link: "https://github.com/thaoton1910/portfolio",
+      link: "/projects/analog-only_solar_panel",
     },
     {
       title: "NixOS-WSL Configuration",
       subtitle: "Auto Charging and Auto Tracing to Light Source",
       image: project4,
-      link: "https://github.com/thaoton1910/portfolio",
+      link: "/projects/analog-only_solar_panel",
     },
   ];
 
@@ -65,9 +72,8 @@ const Projects = () => {
           {myProjects.map((project, index) => (
             <Card className="project-card" key={index}>
               <CardActionArea
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                component={RouterLink}
+                to={project.link}
                 className="project-action-area"
               >
                 {/* Top 85%: Visual Showcase Canvas */}
