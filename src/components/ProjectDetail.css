@@ -1,0 +1,227 @@
+.project-detail-root {
+  background-color: var(--background) !important;
+  color: var(--text-dark) !important;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+.detail-hero-image-bg {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  height: 50vh;
+  background-image: var(--hero-bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 6px solid var(--secondary-main);
+  display: flex;
+  align-items: center;
+}
+
+.detail-hero-image-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 38, 30, 0.65) 0%,    /* Lightened up to show more project image detail */
+    rgba(16, 26, 21, 0.50) 60%,   /* Mid-point stabilization to maintain high contrast */
+    rgba(10, 15, 12, 0.70) 100%   /* Mild vignette baseline anchors the text banner stack */
+  );
+  z-index: 1;
+}
+
+/* Forces content overlay layers above the background mask */
+.hero-content-stack {
+  position: relative;
+  z-index: 2;
+}
+
+.detail-title {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  color: var(--text-light);
+  text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.6);
+  line-height: 1.2 !important;
+}
+
+.detail-subtitle {
+  font-family: 'Lora', serif !important;
+  font-style: italic;
+  color: var(--text-light);
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 14px !important;
+  font-size: clamp(1.15rem, 2vw, 1.45rem) !important;
+  max-width: 900px;
+  line-height: 1.5 !important;
+}
+
+/* 2-Column CSS Grid Layout System */
+.detail-main-container {
+  margin-top: 70px !important;
+  padding: 0 40px !important;
+  display: block !important;
+}
+
+/* Enforces 2 separate columns on wide layouts */
+.detail-grid-layout {
+  display: grid;
+  grid-template-columns: 3fr 9fr; /* Left metadata gets 25%, right gets 75% */
+  gap: 64px; /* Matches MUI spacing={8} gap size */
+  align-items: flex-start;
+  width: 100%;
+}
+
+.column-left {
+  width: 100%;
+}
+
+.column-right {
+  width: 100%;
+}
+
+/* Metadata Sticky Alignment Layout */
+.metadata-sidebar {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-block {
+  padding: 18px 0;
+}
+
+.meta-heading {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 2px;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  margin-bottom: 8px !important;
+}
+
+.meta-value {
+  font-family: 'Lora', serif !important;
+  font-size: 1.15rem !important;
+  opacity: 0.85;
+}
+
+.meta-divider {
+  border-color: color-mix(in srgb, var(--primary-dark), transparent 55%) !important;
+}
+
+/* Core Stack Tag Grid Integration */
+.tech-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  font-family: 'Lora', serif;
+  font-size: 0.85rem;
+  background-color: var(--light-matcha);
+  color: var(--primary-dark);
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--primary-dark), transparent 85%);
+}
+
+.view-code-btn {
+  width: 100%;
+  margin-top: 25px !important;
+  background-color: var(--secondary-main) !important;
+  color: var(--text-dark) !important;
+  font-weight: 700 !important;
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 1px;
+  border-radius: 6px !important;
+  padding: 12px 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.view-code-btn:hover {
+  background-color: var(--light-strawberry) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(252, 159, 177, 0.35) !important;
+}
+
+/* Technical Description Breakdown */
+.section-header {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;
+  color: var(--primary-dark);
+  letter-spacing: 1.5px;
+  margin-bottom: 20px !important;
+  border-bottom: 2.5px solid var(--light-matcha);
+  display: inline-block;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.overview-textParagraph {
+  font-family: 'Lora', serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1.8 !important;
+  opacity: 0.9;
+  margin-bottom: 35px;
+}
+
+/* Benchmark Bullet List Rules */
+.outcomes-list {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.outcomes-list li {
+  font-family: 'Lora', serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  position: relative;
+  opacity: 0.9;
+}
+
+/* Custom Double Chevron Bullets */
+.outcomes-list li::before {
+  content: "»";
+  position: absolute;
+  left: -22px;
+  color: var(--secondary-main);
+  font-weight: 700;
+  font-size: 1.25rem;
+  top: -1px;
+}
+
+@media (max-width: 900px) {
+  .detail-hero-image-bg {
+    min-height: 320px;
+    height: 35vh;
+  }
+
+  .detail-main-container {
+    padding: 0 20px !important;
+    margin-top: 40px !important;
+  }
+
+  /* Single vertical item sequence for mobile text readability */
+  .detail-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .metadata-sidebar {
+    position: static;
+  }
+}
