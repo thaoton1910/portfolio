@@ -8,7 +8,7 @@ export const projectData = {
     subtitle: "Auto Charging and Auto Tracing to Light Source",
     image: project1,
     link: "/projects/analog-only_solar_panel",
-    year: "Apr - May 2026",
+    year: "Apr 2026 - May 2026",
     role: "Team Leader - Hardware Design & Simulation",
     technologies: [
       "Altium",
@@ -26,24 +26,51 @@ export const projectData = {
       {
         main: "Light Detection",
         subDetails: [
-          { text: "The system uses two Light Dependent Resistors (LDR) sensors placed on opposite sides of the solar panel." },
-          { text: "Differential Tracking: Resistance decreases on the high-exposure sensor, shifting the comparator threshold state and driving rotation toward light vectors." },
+          {
+            text: "The system uses two Light Dependent Resistors (LDR) sensors placed on opposite sides of the solar panel.",
+          },
+          {
+            text: "When the solar panel is aligned with the light source:",
+            deepDetails: [
+              "Both LDRs receive equal light",
+              "Their voltage is equal",
+              "The motor stops rotating",
+            ],
+          },
+          {
+            text: "When one side receives more light:",
+            deepDetails: [
+              "The resistance of LDR with more light decreases",
+              "The comparator output changes state",
+              "The motor rotates toward the brighter direction",
+            ],
+          },
         ],
       },
       {
         main: "Comparator with Hysteresis",
         subDetails: [
-          { text: "LM358 operational amplifier is used as a comparator. Hysteresis is added using positive feedback resistors." },
-          { 
-            text: "Why hysteresis is important:", 
-            deepDetails: [
-              "Prevents unstable motor vibration (jiggling) under fluctuating light conditions.",
-              "Protects H-bridge logic switches and relay paths from rapid oscillation cycles.",
-              "Establishes a stable mechanical equilibrium margin once properly aligned."
-            ]
+          {
+            text: "LM358 operational amplifier is used as a comparator. Hysteresis is added using positive feedback resistors.",
           },
-          { text: "Comparator 1 (V_HIGH): Detects when LEFT sensor is brighter (voltage exceeds threshold)." },
-          { text: "Comparator 2 (V_LOW): Detects when RIGHT sensor is brighter (voltage drops below threshold)." },
+          {
+            text: "Why hysteresis is important:",
+            deepDetails: [
+              "Prevents rapid switching",
+              "Avoids motor vibration",
+              "Creates a stable dead zone",
+              "Improves system reliability",
+            ],
+          },
+          {
+            text: "Comparator 1 (V_HIGH): Detects when LEFT sensor is brighter (voltage exceeds threshold).",
+          },
+          {
+            text: "Comparator 2 (V_LOW): Detects when RIGHT sensor is brighter (voltage drops below threshold).",
+          },
+          {
+            text: "Dead Zone: When light is centered, both comparators stay unchanged → NO MOTOR MOVEMENT.",
+          },
         ],
       },
       {
@@ -78,16 +105,16 @@ export const projectData = {
     },
 
     results: [
-      "Autonomous self-sustainability confirmed under continuous variable cloud coverage simulation parameters.",
-      "Zero-jiggle stability metrics validated across static illumination arrays and standard sunlight environments.",
+      "Auto charging and prove that the system can be self-sustainable on cloudy days (operate continuously without external power - require power saving functions).",
+      "No jiggling operation when the light source is fixed, or when placed under the sun.",
       "Tracking resolution verified within precision geometric margins (<10 degrees execution window).",
     ],
 
     gallery: [
-      { label: "Circuit Design Schematic", url: project1 },
-      { label: "Mechanical Fusion Sketch", url: project1 },
-      { label: "System Block Architecture", url: project1 },
-      { label: "SPICE Simulation Plot Graphs", url: project1 },
+      { label: "Circuit Design", url: project1 },
+      { label: "Sketch Design", url: project1 },
+      { label: "Block Diagram", url: project1 },
+      { label: "Simulation", url: project1 },
     ],
 
     references: [
