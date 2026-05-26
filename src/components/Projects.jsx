@@ -11,9 +11,8 @@ import { useTheme } from "@mui/material/styles";
 import "./Projects.css";
 
 import project1 from "../assets/analog-only_solar_panel.jpg";
-import project2 from "../assets/analog-only_solar_panel.jpg";
-import project3 from "../assets/analog-only_solar_panel.jpg";
-import project4 from "../assets/analog-only_solar_panel.jpg";
+import project2 from "../assets/aura_band.jpg";
+import project3 from "../assets/mindtress_device.png";
 
 const Projects = () => {
   const theme = useTheme();
@@ -26,23 +25,17 @@ const Projects = () => {
       link: "/projects/analog-only_solar_panel",
     },
     {
-      title: "Answer Files",
-      subtitle: "Auto Charging and Auto Tracing to Light Source",
+      title: "Aura Band",
+      subtitle: "Real-Time Voice-Activated Safety Device for the Visually Impaired",
       image: project2,
-      link: "/projects/analog-only_solar_panel",
+      link: "/projects/aura_band",
     },
     {
-      title: "Expression Evaluator",
-      subtitle: "Auto Charging and Auto Tracing to Light Source",
+      title: "MINDTRESS Device",
+      subtitle: "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
       image: project3,
-      link: "/projects/analog-only_solar_panel",
-    },
-    {
-      title: "NixOS-WSL Configuration",
-      subtitle: "Auto Charging and Auto Tracing to Light Source",
-      image: project4,
-      link: "/projects/analog-only_solar_panel",
-    },
+      link: "/projects/mindtress_device",
+    }
   ];
 
   return (
