@@ -24,7 +24,7 @@ export const projectData = {
 
     details: [
       {
-        main: "Light Detection Architecture:",
+        main: "Light Detection",
         subDetails: [
           "Aligned Equilibrium: When balanced, both LDRs receive equal light, stabilizing input voltage parameters and stopping the DC motor.",
           "Differential Tracking: Resistance decreases on the high-exposure sensor, shifting the comparator threshold state and driving rotation toward light vectors.",
@@ -60,20 +60,18 @@ export const projectData = {
     componentsList: {
       Hardware: [
         "Solar Panel 2W 6V",
-        "18650 Lithium-Ion Battery Cells",
-        "TP4056 Linear Li-Ion Battery Charger Module",
-        "Boost DC-DC MT3608 Converter Module",
-        "DC Motor Drive Core",
-        "L298N Mini Dual H-Bridge Driver",
+        "Diode 1N4007, Potentiometers (20k, 100k), Resistors (680k, 1k, 100k, 220k)",
+        "LM358P IC OPAMP",
+        "TP4056 Battery Charger Module",
+        "18650 lithium-ion battery",
+        "Boost DC-DC MT3608",
+        "DC Motor",
+        "L298N Mini",
       ],
-      Sensors: [
-        "Light Dependent Resistors (5mm LDR Arrays)",
-        "LM358P Low-Power Dual Op-Amp ICs",
-      ],
+      Sensors: ["Light Dependent Resistors 5MM"],
       Discrete: [
-        "Diode 1N4007",
-        "Potentiometers (20kΩ, 100kΩ)",
-        "Resistors (680kΩ, 1kΩ, 100kΩ, 220kΩ)",
+        "Altium",
+        "Autodesk Fusion ",
       ],
     },
 

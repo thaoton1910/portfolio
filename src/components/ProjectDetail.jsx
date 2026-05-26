@@ -1,82 +1,33 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Box, Container, Typography, Button, Divider } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Divider,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Grid,
+} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useTheme } from "@mui/material/styles";
+
 import Navbar from "./Navbar";
+import { projectData } from "../data/projectData";
 import "./ProjectDetail.css";
-
-import project1 from "../assets/analog-only_solar_panel.jpg";
-
-const projectData = {
-  "analog-only_solar_panel": {
-    title: "Analog-Only Solar Panel",
-    subtitle: "Auto Charging and Auto Tracing to Light Source",
-    image: project1,
-    year: "2026",
-    role: "Hardware Systems Lead",
-    technologies: ["Altium", "Circuit Design", "Autodesk Fusion 360", "Analog Electronics"],
-    demoLink: "https://github.com/thaoton1910/portfolio",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    details: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    ]
-  },
-  "project2": {
-    title: "Analog-Only Solar Panel",
-    subtitle: "Auto Charging and Auto Tracing to Light Source",
-    image: project1,
-    year: "2026",
-    role: "Hardware Systems Lead",
-    technologies: ["Altium", "Circuit Design", "Autodesk Fusion 360", "Analog Electronics"],
-    demoLink: "https://github.com/thaoton1910/portfolio",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    details: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    ]
-  },
-  "project3": {
-    title: "Analog-Only Solar Panel",
-    subtitle: "Auto Charging and Auto Tracing to Light Source",
-    image: project1,
-    year: "2026",
-    role: "Hardware Systems Lead",
-    technologies: ["Altium", "Circuit Design", "Autodesk Fusion 360", "Analog Electronics"],
-    demoLink: "https://github.com/thaoton1910/portfolio",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    details: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    ]
-  },
-  "project4": {
-    title: "Analog-Only Solar Panel",
-    subtitle: "Auto Charging and Auto Tracing to Light Source",
-    image: project1,
-    year: "2026",
-    role: "Hardware Systems Lead",
-    technologies: ["Altium", "Circuit Design", "Autodesk Fusion 360", "Analog Electronics"],
-    demoLink: "https://github.com/thaoton1910/portfolio",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    details: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    ]
-  },
-};
 
 const ProjectDetail = () => {
   const { projectName } = useParams();
   const navigate = useNavigate();
   const theme = useTheme();
-  
+
   const project = projectData[projectName];
 
   useEffect(() => {
@@ -88,14 +39,22 @@ const ProjectDetail = () => {
       <>
         <Navbar />
         <Container sx={{ py: 12, textAlign: "center" }}>
-          <Typography variant="h4" sx={{ fontFamily: "'Cinzel', serif", fontWeight: 700, mb: 2 }}>
+          <Typography
+            variant="h4"
+            sx={{ fontFamily: "'Cinzel', serif", fontWeight: 700, mb: 2 }}
+          >
             Project Configuration Missing
           </Typography>
-          <Button 
+          <Button
             variant="outlined"
-            startIcon={<ArrowBackIcon />} 
+            startIcon={<ArrowBackIcon />}
             onClick={() => navigate("/")}
-            sx={{ fontFamily: "'Cinzel', serif", fontWeight: 700, mt: 2, borderColor: "var(--primary-dark)" }}
+            sx={{
+              fontFamily: "'Cinzel', serif",
+              fontWeight: 700,
+              mt: 2,
+              borderColor: "var(--primary-dark)",
+            }}
           >
             Return to Hub
           </Button>
@@ -105,7 +64,7 @@ const ProjectDetail = () => {
   }
 
   return (
-    <Box 
+    <Box
       className="project-detail-root"
       style={{
         "--primary-main": theme.palette.primary.main,
@@ -121,7 +80,7 @@ const ProjectDetail = () => {
     >
       <Navbar />
 
-      {/* Hero Section Banner Panel Frame */}
+      {/* Hero Section */}
       <Box className="detail-hero-image-bg">
         <Container maxWidth="xl" className="hero-content-stack">
           <Typography variant="h1" className="detail-title">
@@ -133,11 +92,10 @@ const ProjectDetail = () => {
         </Container>
       </Box>
 
-      {/* Main Structural Layout Wrapper */}
+      {/* Main Container Layout */}
       <Container maxWidth="xl" className="detail-main-container">
         <Box className="detail-grid-layout">
-          
-          {/* Left Side Column: Metadata Sidebar */}
+          {/* Left Column: Sidebar Metadata */}
           <Box className="column-left">
             <Box className="metadata-sidebar">
               <Box className="meta-block">
@@ -145,18 +103,20 @@ const ProjectDetail = () => {
                 <Typography className="meta-value">{project.year}</Typography>
               </Box>
               <Divider className="meta-divider" />
-              
+
               <Box className="meta-block">
-                <Typography className="meta-heading">Role Assignment</Typography>
+                <Typography className="meta-heading">Role</Typography>
                 <Typography className="meta-value">{project.role}</Typography>
               </Box>
               <Divider className="meta-divider" />
-              
+
               <Box className="meta-block">
-                <Typography className="meta-heading">Core Stack Tools</Typography>
+                <Typography className="meta-heading">Stack Tools</Typography>
                 <Box className="tech-chip-grid">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="tech-tag">{tech}</span>
+                    <span key={i} className="tech-tag">
+                      {tech}
+                    </span>
                   ))}
                 </Box>
               </Box>
@@ -179,23 +139,211 @@ const ProjectDetail = () => {
             </Box>
           </Box>
 
-          {/* Right Side Column: Technical Content Canvas Details */}
+          {/* Right Column: Narrative Canvas content */}
           <Box className="column-right">
             <Box className="content-story">
-              <Typography variant="h3" className="section-header">Project Architecture</Typography>
+              <Typography variant="h3" className="section-header">
+                Overview
+              </Typography>
               <Typography className="overview-textParagraph">
-                {project.description}
+                {project.overview}
               </Typography>
 
-              <Typography variant="h3" className="section-header" sx={{ mt: 4 }}>Implementation Benchmarks</Typography>
+              <Typography
+                variant="h3"
+                className="section-header"
+                sx={{ mt: 4 }}
+              >
+                Key Features
+              </Typography>
               <Box component="ul" className="outcomes-list">
                 {project.details.map((detail, index) => (
-                  <li key={index}>{detail}</li>
+                  <li key={index} className="nested-list-parent">
+                    <Typography className="list-main-text">
+                      {detail.main}
+                    </Typography>
+                    {detail.subDetails && detail.subDetails.length > 0 && (
+                      <Box
+                        component="ul"
+                        className="nested-sub-list"
+                        sx={{ mt: 1, mb: 2 }}
+                      >
+                        {detail.subDetails.map((sub, subIndex) => (
+                          <li key={subIndex}>
+                            <Typography variant="body2">{sub}</Typography>
+                          </li>
+                        ))}
+                      </Box>
+                    )}
+                  </li>
                 ))}
               </Box>
+
+              {/* Dynamic Bill of Materials Components Section */}
+              {project.componentsList && (
+                <Box sx={{ mt: 4, width: "100%" }}>
+                  <Typography variant="h3" className="section-header">
+                    Component Ecosystem
+                  </Typography>
+
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: {
+                        xs: "1fr", // Stacks 100% full-width on mobile
+                        md: "1fr 1fr 1fr", // Forces 3 identical column tracks on desktop
+                      },
+                      gap: "24px", // Matches the standard spacing={3} gap allocation (24px)
+                      mt: 2,
+                      width: "100%",
+                    }}
+                  >
+                    {Object.entries(project.componentsList).map(
+                      ([category, items]) => (
+                        <Paper
+                          key={category}
+                          elevation={0}
+                          className="component-category-card"
+                        >
+                          <Typography className="component-category-title">
+                            {category}
+                          </Typography>
+                          <Box component="ul" className="component-items-ul">
+                            {items.map((item, idx) => (
+                              <li key={idx}>{item}</li>
+                            ))}
+                          </Box>
+                        </Paper>
+                      ),
+                    )}
+                  </Box>
+                </Box>
+              )}
+
+              {/* Conditional Logic Table Layer Rendering */}
+              {project.tableData && (
+                <Box sx={{ my: 5 }}>
+                  <Typography variant="h4" className="sub-section-header">
+                    Operational Logic Matrix
+                  </Typography>
+                  <TableContainer
+                    component={Paper}
+                    className="custom-table-container"
+                    elevation={2}
+                  >
+                    <Table>
+                      <TableHead className="table-head-row">
+                        <TableRow>
+                          {project.tableData.headers.map((header, i) => (
+                            <TableCell key={i} className="table-header-cell">
+                              <strong>{header}</strong>
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {project.tableData.rows.map((row, rowIndex) => (
+                          <TableRow key={rowIndex} className="table-body-row">
+                            {row.map((cell, cellIndex) => (
+                              <TableCell
+                                key={cellIndex}
+                                className="table-body-cell"
+                              >
+                                {cell}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Box>
+              )}
+
+              {/* Benchmarks Section */}
+              {project.results && (
+                <Box sx={{ mt: 5 }}>
+                  <Typography variant="h3" className="section-header">
+                    Performance Results
+                  </Typography>
+                  <Box component="ul" className="outcomes-list">
+                    {project.results.map((result, idx) => (
+                      <li key={idx}>{result}</li>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
+              {/* Dynamic Media Pipeline: Image Blueprint Gallery */}
+              {project.gallery && project.gallery.length > 0 && (
+                <Box sx={{ mt: 6 }}>
+                  <Typography variant="h3" className="section-header">
+                    Engineering Blueprints
+                  </Typography>
+                  <Grid container spacing={2} sx={{ mt: 1 }}>
+                    {project.gallery.map((item, index) => (
+                      <Grid item xs={12} sm={4} key={index}>
+                        <Box className="gallery-card">
+                          <img
+                            src={item.url}
+                            alt={item.label}
+                            className="gallery-img"
+                          />
+                          <Typography className="gallery-label">
+                            {item.label}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Box>
+              )}
+
+              {/* Dynamic Video Player Frame */}
+              {project.youtubeId && (
+                <Box sx={{ mt: 6, mb: 4 }}>
+                  <Typography variant="h3" className="section-header">
+                    Field Verification & Testing
+                  </Typography>
+                  <Box className="video-responsive-wrapper">
+                    <iframe
+                      width="853"
+                      height="480"
+                      src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title="Project Test Validation Run"
+                    />
+                  </Box>
+                </Box>
+              )}
+
+              {/* Dynamic Academic References Component */}
+              {project.references && project.references.length > 0 && (
+                <Box sx={{ mt: 6, pt: 2 }}>
+                  <Typography variant="h4" className="references-header">
+                    Academic References
+                  </Typography>
+                  <Box className="references-block">
+                    {project.references.map((ref, idx) => (
+                      <Typography key={idx} className="reference-citation-text">
+                        {ref.authorsAndYear}{" "}
+                        <a
+                          href={ref.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {ref.title}
+                        </a>{" "}
+                        {ref.publication}
+                      </Typography>
+                    ))}
+                  </Box>
+                </Box>
+              )}
             </Box>
           </Box>
-          
         </Box>
       </Container>
     </Box>
