@@ -244,6 +244,20 @@ const ProjectDetail = () => {
                 ))}
               </Box>
 
+              {/* Benchmarks Section */}
+              {project.results && (
+                <Box sx={{ mt: 5 }}>
+                  <Typography variant="h3" className="section-header">
+                    Results
+                  </Typography>
+                  <Box component="ul" className="outcomes-list">
+                    {project.results.map((result, idx) => (
+                      <li key={idx}>{result}</li>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
               {/* Dynamic Bill of Materials Components Section */}
               {project.componentsList && (
                 <Box sx={{ mt: 4, width: "100%" }}>
@@ -281,20 +295,6 @@ const ProjectDetail = () => {
                         </Paper>
                       ),
                     )}
-                  </Box>
-                </Box>
-              )}
-
-              {/* Benchmarks Section */}
-              {project.results && (
-                <Box sx={{ mt: 5 }}>
-                  <Typography variant="h3" className="section-header">
-                    Results
-                  </Typography>
-                  <Box component="ul" className="outcomes-list">
-                    {project.results.map((result, idx) => (
-                      <li key={idx}>{result}</li>
-                    ))}
                   </Box>
                 </Box>
               )}

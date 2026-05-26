@@ -64,7 +64,7 @@ export const projectData = {
         ],
       },
       {
-        main: "Threshold Trigger Windows & Operational Logic Matrix:",
+        main: "Motor Operation Logic",
         hasEmbeddedTable: true,
       },
     ],
