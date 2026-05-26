@@ -26,9 +26,7 @@ export const projectData = {
       {
         main: "Light Detection",
         subDetails: [
-          {
-            text: "The system uses two Light Dependent Resistors (LDR) sensors placed on opposite sides of the solar panel.",
-          },
+          "The system uses two Light Dependent Resistors (LDR) sensors placed on opposite sides of the solar panel.",
           {
             text: "When the solar panel is aligned with the light source:",
             deepDetails: [
@@ -50,9 +48,7 @@ export const projectData = {
       {
         main: "Comparator with Hysteresis",
         subDetails: [
-          {
-            text: "LM358 operational amplifier is used as a comparator. Hysteresis is added using positive feedback resistors.",
-          },
+          "LM358 operational amplifier is used as a comparator. Hysteresis is added using positive feedback resistors.",
           {
             text: "Why hysteresis is important:",
             deepDetails: [
@@ -62,15 +58,9 @@ export const projectData = {
               "Improves system reliability",
             ],
           },
-          {
-            text: "Comparator 1 (V_HIGH): Detects when LEFT sensor is brighter (voltage exceeds threshold).",
-          },
-          {
-            text: "Comparator 2 (V_LOW): Detects when RIGHT sensor is brighter (voltage drops below threshold).",
-          },
-          {
-            text: "Dead Zone: When light is centered, both comparators stay unchanged → NO MOTOR MOVEMENT.",
-          },
+          "Comparator 1 (V_HIGH): Detects when LEFT sensor is brighter (voltage exceeds threshold).",
+          "Comparator 2 (V_LOW): Detects when RIGHT sensor is brighter (voltage drops below threshold).",
+          "Dead Zone: When light is centered, both comparators stay unchanged → NO MOTOR MOVEMENT.",
         ],
       },
       {
@@ -134,33 +124,25 @@ export const projectData = {
     image: project2,
     link: "/projects/aura_band",
     year: "2026",
-    role: "Embedded Systems & AI Lead",
-    technologies: [
-      "C++",
-      "Edge Impulse",
-      "ESP32-S3",
-      "FreeRTOS",
-      "Signal Processing",
-    ],
+    role: "Team Leader",
+    technologies: ["C++"],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
     youtubeId: "saMwA9GqaNc",
     overview:
-      "The AURA Band is a real-time voice-activated safety device designed to assist visually impaired pedestrians in urban environments. The system continuously captures and processes 16 kHz audio signals using an INMP441 I2S microphone, applies MFCC feature extraction, and runs a trained convolutional neural network (CNN) to classify spoken commands namely “AURA” (wake word), “WALK”, “CROSS”, “HELP”, and “CANCEL”.",
-
+      "The AURA Band is a real-time voice-activated safety device designed to assist visually impaired pedestrians in urban environments. The system continuously captures and processes 16 kHz audio signals using an INMP441 I2S microphone, applies MFCC feature extraction, and runs a trained convolutional neural network (CNN) to classify spoken commands namely “AURA” (wake word), “WALK”, “CROSS”, “HELP”, and “CANCEL”. Upon command detection, the device produces coordinated LED patterns (rotating cyan for awake state, steady yellow for walking, flashing orange/buzzer for street crossing, rapid red for emergencies) and buzzer alerts, providing real-time feedback to both the user and surrounding traffic. The current prototype demonstrates a complete hardware-to-output pipeline with 360 training samples (6 minutes of audio), dual-core FreeRTOS execution, and reliable field validation (~87.5%).",
     details: [
       {
-        main: "Task 1: Real-Time Audio Capture Engine (Core 0, Priority 3)",
+        main: "Task 1: Audio Capture (Core 0, Priority 3)",
         subDetails: [
-          "Maintains low-latency bounds by isolating audio collection loops onto Core 0.",
-          "Configured for 16 kHz sampling profiles utilizing hardware I2S Direct Memory Access (DMA) to bypass CPU utilization bottlenecks.",
+          "Runs continuously on Core 0 to minimize latency and ensure consistent microphone sampling.",
+          "Configured for 16 kHz sampling with I2S DMA (Direct Memory Access) to offload data transfer from the CPU. ",
         ],
       },
       {
-        main: "Task 2: Neural Inference Engine (Core 1, Priority 2)",
+        main: "Task 2: AI Inference (Core 1, Priority 2)",
         subDetails: [
-          "Executes TinyML analytical iterations on-device every 1000ms using compiled Edge Impulse deployment binaries.",
-          "Applies adaptive threshold targets: 70% Confidence for AURA keyword validation, 50% for standard operation directives (WALK/CROSS/HELP), and 65% for background noise rejection matrices.",
-          "Anti-jitter scheduling: Includes a 300 ms model cooldown, a 10s automatic sleep timeout wrapper, and a 2s response sequence validation window.",
+          "Performs on-device machine learning inference every 1 second using Edge Impulse's optimized neural network model.",
+          "The inference pipeline includes:",
         ],
       },
       {
@@ -234,7 +216,7 @@ export const projectData = {
     demoLink: "https://github.com/thaoton1910/portfolio",
     youtubeId: "User 1 Video ID",
     overview:
-      "Our product detects users’ emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
+      "Our product detects users' emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
 
     details: [
       {

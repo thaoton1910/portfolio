@@ -303,7 +303,7 @@ const ProjectDetail = () => {
               {project.gallery && project.gallery.length > 0 && (
                 <Box sx={{ mt: 6 }}>
                   <Typography variant="h3" className="section-header">
-                    Engineering Blueprints
+                    Gallery & Design Artifacts
                   </Typography>
                   <Grid container spacing={2} sx={{ mt: 1 }}>
                     {project.gallery.map((item, index) => (
@@ -328,7 +328,7 @@ const ProjectDetail = () => {
               {project.youtubeId && (
                 <Box sx={{ mt: 6, mb: 4 }}>
                   <Typography variant="h3" className="section-header">
-                    Field Verification & Testing
+                    Video Demonstration
                   </Typography>
                   <Box className="video-responsive-wrapper">
                     <iframe
