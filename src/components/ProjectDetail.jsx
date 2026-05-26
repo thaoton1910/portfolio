@@ -56,7 +56,7 @@ const ProjectDetail = () => {
               borderColor: "var(--primary-dark)",
             }}
           >
-            Return to Hub
+            Back to Home
           </Button>
         </Container>
       </>
@@ -162,7 +162,7 @@ const ProjectDetail = () => {
                     <Typography className="list-main-text">
                       {detail.main}
                     </Typography>
-                    
+
                     {/* Standard Level 2 sub-bullets */}
                     {detail.subDetails && detail.subDetails.length > 0 && (
                       <Box
@@ -185,7 +185,9 @@ const ProjectDetail = () => {
                               >
                                 {sub.deepDetails.map((deep, deepIdx) => (
                                   <li key={deepIdx}>
-                                    <Typography variant="body2">{deep}</Typography>
+                                    <Typography variant="body2">
+                                      {deep}
+                                    </Typography>
                                   </li>
                                 ))}
                               </Box>
@@ -208,7 +210,10 @@ const ProjectDetail = () => {
                             <TableHead className="table-head-row">
                               <TableRow>
                                 {project.tableData.headers.map((header, i) => (
-                                  <TableCell key={i} className="table-header-cell">
+                                  <TableCell
+                                    key={i}
+                                    className="table-header-cell"
+                                  >
                                     <strong>{header}</strong>
                                   </TableCell>
                                 ))}
@@ -216,7 +221,10 @@ const ProjectDetail = () => {
                             </TableHead>
                             <TableBody>
                               {project.tableData.rows.map((row, rowIndex) => (
-                                <TableRow key={rowIndex} className="table-body-row">
+                                <TableRow
+                                  key={rowIndex}
+                                  className="table-body-row"
+                                >
                                   {row.map((cell, cellIndex) => (
                                     <TableCell
                                       key={cellIndex}
