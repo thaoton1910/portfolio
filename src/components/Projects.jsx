@@ -8,35 +8,12 @@ import {
   CardActionArea,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import "./Projects.css";
 
-import project1 from "../assets/analog-only_solar_panel.jpg";
-import project2 from "../assets/aura_band.jpg";
-import project3 from "../assets/mindtress_device.png";
+import { projectData } from "../data/projectData";
+import "./Projects.css";
 
 const Projects = () => {
   const theme = useTheme();
-
-  const myProjects = [
-    {
-      title: "Analog-Only Solar Panel",
-      subtitle: "Auto Charging and Auto Tracing to Light Source",
-      image: project1,
-      link: "/projects/analog-only_solar_panel",
-    },
-    {
-      title: "Aura Band",
-      subtitle: "Real-Time Voice-Activated Safety Device for the Visually Impaired",
-      image: project2,
-      link: "/projects/aura_band",
-    },
-    {
-      title: "MINDTRESS Device",
-      subtitle: "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
-      image: project3,
-      link: "/projects/mindtress_device",
-    }
-  ];
 
   return (
     <Box
@@ -62,7 +39,7 @@ const Projects = () => {
         </Box>
 
         <Box className="projects-clean-grid">
-          {myProjects.map((project, index) => (
+          {Object.values(projectData).map((project, index) => (
             <Card className="project-card" key={index}>
               <CardActionArea
                 component={RouterLink}
