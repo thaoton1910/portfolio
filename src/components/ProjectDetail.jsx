@@ -154,7 +154,7 @@ const ProjectDetail = () => {
                 className="section-header"
                 sx={{ mt: 4 }}
               >
-                Key Features
+                Features
               </Typography>
               <Box component="ul" className="outcomes-list">
                 {project.details.map((detail, index) => (
@@ -248,7 +248,7 @@ const ProjectDetail = () => {
               {project.componentsList && (
                 <Box sx={{ mt: 4, width: "100%" }}>
                   <Typography variant="h3" className="section-header">
-                    Component Ecosystem
+                    Components
                   </Typography>
 
                   <Box
@@ -289,7 +289,7 @@ const ProjectDetail = () => {
               {project.results && (
                 <Box sx={{ mt: 5 }}>
                   <Typography variant="h3" className="section-header">
-                    Performance Results
+                    Results
                   </Typography>
                   <Box component="ul" className="outcomes-list">
                     {project.results.map((result, idx) => (
@@ -303,7 +303,7 @@ const ProjectDetail = () => {
               {project.gallery && project.gallery.length > 0 && (
                 <Box sx={{ mt: 6 }}>
                   <Typography variant="h3" className="section-header">
-                    Gallery & Design Artifacts
+                    Gallery
                   </Typography>
                   <Grid container spacing={2} sx={{ mt: 1 }}>
                     {project.gallery.map((item, index) => (
@@ -328,7 +328,7 @@ const ProjectDetail = () => {
               {project.youtubeId && (
                 <Box sx={{ mt: 6, mb: 4 }}>
                   <Typography variant="h3" className="section-header">
-                    Video Demonstration
+                    Demonstration
                   </Typography>
                   <Box className="video-responsive-wrapper">
                     <iframe
