@@ -26,24 +26,29 @@ export const projectData = {
       {
         main: "Light Detection",
         subDetails: [
-          "Aligned Equilibrium: When balanced, both LDRs receive equal light, stabilizing input voltage parameters and stopping the DC motor.",
-          "Differential Tracking: Resistance decreases on the high-exposure sensor, shifting the comparator threshold state and driving rotation toward light vectors.",
+          { text: "The system uses two Light Dependent Resistors (LDR) sensors placed on opposite sides of the solar panel." },
+          { text: "Differential Tracking: Resistance decreases on the high-exposure sensor, shifting the comparator threshold state and driving rotation toward light vectors." },
         ],
       },
       {
-        main: "Operational Control Loop (LM358 Hysteresis Operational Amplifier):",
+        main: "Comparator with Hysteresis",
         subDetails: [
-          "Positive feedback loops isolate the comparator outputs from rapid switching ripples.",
-          "Suppresses uncalibrated motor vibration and chatter under varying light thresholds.",
-          "Creates a precise, non-reactive physical dead zone when light source alignment vectors are achieved.",
+          { text: "LM358 operational amplifier is used as a comparator. Hysteresis is added using positive feedback resistors." },
+          { 
+            text: "Why hysteresis is important:", 
+            deepDetails: [
+              "Prevents unstable motor vibration (jiggling) under fluctuating light conditions.",
+              "Protects H-bridge logic switches and relay paths from rapid oscillation cycles.",
+              "Establishes a stable mechanical equilibrium margin once properly aligned."
+            ]
+          },
+          { text: "Comparator 1 (V_HIGH): Detects when LEFT sensor is brighter (voltage exceeds threshold)." },
+          { text: "Comparator 2 (V_LOW): Detects when RIGHT sensor is brighter (voltage drops below threshold)." },
         ],
       },
       {
-        main: "Threshold Trigger Windows:",
-        subDetails: [
-          "Comparator 1 (V_HIGH): Left differential sensor calibration threshold trigger.",
-          "Comparator 2 (V_LOW): Right differential sensor calibration threshold trigger.",
-        ],
+        main: "Threshold Trigger Windows & Operational Logic Matrix:",
+        hasEmbeddedTable: true,
       },
     ],
 
@@ -69,10 +74,7 @@ export const projectData = {
         "L298N Mini",
       ],
       Sensors: ["Light Dependent Resistors 5MM"],
-      Discrete: [
-        "Altium",
-        "Autodesk Fusion ",
-      ],
+      Software: ["Altium", "Autodesk Fusion 360"],
     },
 
     results: [
@@ -135,10 +137,8 @@ export const projectData = {
         ],
       },
       {
-        main: "Task 3: Independent Animation State Engine (Core 1, Priority 1)",
-        subDetails: [
-          "Asynchronously reads shared RTOS status flags to update human-interface arrays without interfering with inference sampling loops.",
-        ],
+        main: "Task 3: Independent Animation State Engine (Core 1, Priority 1) & State Matrix Table:",
+        hasEmbeddedTable: true,
       },
     ],
 
@@ -205,7 +205,7 @@ export const projectData = {
       "Algorithm Design",
     ],
     demoLink: "https://github.com/thaoton1910/portfolio",
-    youtubeId: "User 1 Video ID", // Replace with actual YouTube ID if available
+    youtubeId: "User 1 Video ID",
     overview:
       "Our product detects users’ emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
 

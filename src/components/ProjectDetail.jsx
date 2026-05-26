@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Box,
@@ -162,17 +162,74 @@ const ProjectDetail = () => {
                     <Typography className="list-main-text">
                       {detail.main}
                     </Typography>
+                    
+                    {/* Standard Level 2 sub-bullets */}
                     {detail.subDetails && detail.subDetails.length > 0 && (
                       <Box
                         component="ul"
                         className="nested-sub-list"
-                        sx={{ mt: 1, mb: 2 }}
+                        sx={{ mt: 1, mb: 1 }}
                       >
                         {detail.subDetails.map((sub, subIndex) => (
                           <li key={subIndex}>
-                            <Typography variant="body2">{sub}</Typography>
+                            <Typography variant="body2">
+                              {typeof sub === "object" ? sub.text : sub}
+                            </Typography>
+
+                            {/* Level 3 Deep Nested Loop */}
+                            {sub.deepDetails && sub.deepDetails.length > 0 && (
+                              <Box
+                                component="ul"
+                                className="deep-nested-sub-list"
+                                sx={{ mt: 1, mb: 1 }}
+                              >
+                                {sub.deepDetails.map((deep, deepIdx) => (
+                                  <li key={deepIdx}>
+                                    <Typography variant="body2">{deep}</Typography>
+                                  </li>
+                                ))}
+                              </Box>
+                            )}
                           </li>
                         ))}
+                      </Box>
+                    )}
+
+                    {/* Table injection matching schema logic bounds */}
+                    {detail.hasEmbeddedTable && project.tableData && (
+                      <Box sx={{ mt: 2, mb: 3 }}>
+                        <TableContainer
+                          component={Paper}
+                          className="custom-table-container"
+                          elevation={0}
+                          sx={{ border: "1px solid rgba(0,0,0,0.12)" }}
+                        >
+                          <Table size="small">
+                            <TableHead className="table-head-row">
+                              <TableRow>
+                                {project.tableData.headers.map((header, i) => (
+                                  <TableCell key={i} className="table-header-cell">
+                                    <strong>{header}</strong>
+                                  </TableCell>
+                                ))}
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {project.tableData.rows.map((row, rowIndex) => (
+                                <TableRow key={rowIndex} className="table-body-row">
+                                  {row.map((cell, cellIndex) => (
+                                    <TableCell
+                                      key={cellIndex}
+                                      className="table-body-cell"
+                                    >
+                                      {cell}
+                                    </TableCell>
+                                  ))}
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
                       </Box>
                     )}
                   </li>
@@ -190,10 +247,10 @@ const ProjectDetail = () => {
                     sx={{
                       display: "grid",
                       gridTemplateColumns: {
-                        xs: "1fr", // Stacks 100% full-width on mobile
-                        md: "1fr 1fr 1fr", // Forces 3 identical column tracks on desktop
+                        xs: "1fr",
+                        md: "1fr 1fr 1fr",
                       },
-                      gap: "24px", // Matches the standard spacing={3} gap allocation (24px)
+                      gap: "24px",
                       mt: 2,
                       width: "100%",
                     }}
@@ -220,46 +277,6 @@ const ProjectDetail = () => {
                 </Box>
               )}
 
-              {/* Conditional Logic Table Layer Rendering */}
-              {project.tableData && (
-                <Box sx={{ my: 5 }}>
-                  <Typography variant="h4" className="sub-section-header">
-                    Operational Logic Matrix
-                  </Typography>
-                  <TableContainer
-                    component={Paper}
-                    className="custom-table-container"
-                    elevation={2}
-                  >
-                    <Table>
-                      <TableHead className="table-head-row">
-                        <TableRow>
-                          {project.tableData.headers.map((header, i) => (
-                            <TableCell key={i} className="table-header-cell">
-                              <strong>{header}</strong>
-                            </TableCell>
-                          ))}
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {project.tableData.rows.map((row, rowIndex) => (
-                          <TableRow key={rowIndex} className="table-body-row">
-                            {row.map((cell, cellIndex) => (
-                              <TableCell
-                                key={cellIndex}
-                                className="table-body-cell"
-                              >
-                                {cell}
-                              </TableCell>
-                            ))}
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Box>
-              )}
-
               {/* Benchmarks Section */}
               {project.results && (
                 <Box sx={{ mt: 5 }}>
@@ -274,7 +291,7 @@ const ProjectDetail = () => {
                 </Box>
               )}
 
-              {/* Dynamic Media Pipeline: Image Blueprint Gallery */}
+              {/* Dynamic Image Blueprint Gallery */}
               {project.gallery && project.gallery.length > 0 && (
                 <Box sx={{ mt: 6 }}>
                   <Typography variant="h3" className="section-header">
@@ -323,7 +340,7 @@ const ProjectDetail = () => {
               {project.references && project.references.length > 0 && (
                 <Box sx={{ mt: 6, pt: 2 }}>
                   <Typography variant="h4" className="references-header">
-                    Academic References
+                    References
                   </Typography>
                   <Box className="references-block">
                     {project.references.map((ref, idx) => (
