@@ -25,7 +25,8 @@
           "border: 1px solid color-mix(in srgb, var(--text-dark) 15%, transparent)",
           "border-bottom: 1px solid color-mix(in srgb, var(--text-dark) 15%, transparent)",
           "border: 1px solid color-mix(in srgb, var(--text-dark) 12%, transparent)",
-          "border-bottom: 1px solid color-mix(in srgb, var(--primary-dark) 20%, transparent)"
+          "border-bottom: 1px solid color-mix(in srgb, var(--primary-dark) 20%, transparent)",
+          "-webkit-overflow-scrolling"
         ]
       }
     ]

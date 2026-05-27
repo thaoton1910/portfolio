@@ -19,6 +19,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useTheme } from "@mui/material/styles";
 
+import Contact from "./Contact";
 import Navbar from "./Navbar";
 import { projectData } from "../data/projectData";
 import "./ProjectDetail.css";
@@ -371,6 +372,10 @@ const ProjectDetail = () => {
           </Box>
         </Box>
       </Container>
+
+      <Box id="contact" component="footer">
+          <Contact />
+        </Box>
     </Box>
   );
 };
