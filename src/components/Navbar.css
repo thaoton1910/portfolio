@@ -25,11 +25,7 @@
 
 .nav-link:hover {
   color: var(--secondary-main) !important;
-  background-color: color-mix(
-    in srgb,
-    var(--light-matcha),
-    transparent 95%
-  ) !important;
+  background-color: color-mix(in srgb, var(--light-matcha), transparent 95%) !important;
 }
 
 .navbar-root .MuiButton-root {
