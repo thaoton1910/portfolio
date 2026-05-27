@@ -136,5 +136,7 @@
 
   .project-title-banner {
     height: 20% !important;
+    margin: auto 0 !important;
+    padding: auto 0 !important;
   }
 }
