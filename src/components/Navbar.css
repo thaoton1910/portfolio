@@ -7,7 +7,7 @@
 }
 
 .nav-brand {
-  font-family: 'Cinzel', serif !important;
+  font-family: "Cinzel", serif !important;
   letter-spacing: 2px;
   font-weight: 700;
   font-size: 1.1rem !important;
@@ -15,7 +15,7 @@
 }
 
 .nav-link {
-  font-family: 'Lora', serif !important;
+  font-family: "Lora", serif !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
   color: var(--nav-text) !important;
@@ -25,7 +25,11 @@
 
 .nav-link:hover {
   color: var(--secondary-main) !important;
-  background-color: color-mix(in srgb, var(--light-matcha), transparent 95%) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--light-matcha),
+    transparent 95%
+  ) !important;
 }
 
 .navbar-root .MuiButton-root {
@@ -47,6 +51,14 @@
   }
 
   .back-link-btn {
-    padding-left: 25px !important;
+    width: auto !important;       /* Let content define width */
+    min-width: unset !important;  /* Remove MUI's default 64px min-width */
+    padding: 4px !important;      /* Drastically scale down padding around the icon */
+    margin-left: 0px !important;
+  }
+
+  .back-link-btn .MuiButton-startIcon {
+    margin-left: 0px !important;
+    margin-right: 0px !important; /* Eliminates empty space where text used to be */
   }
 }
