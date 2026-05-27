@@ -172,8 +172,6 @@
   margin-bottom: 35px;
 }
 
-/* --- BULLET COMPONENT LAYOUTS (Increased Text Sizes) --- */
-
 .outcomes-list {
   padding-left: 24px;
   list-style: none;
@@ -181,7 +179,7 @@
 
 .outcomes-list li {
   font-family: 'Lora', serif !important;
-  font-size: 1.2rem !important; /* Increased from 1.1rem */
+  font-size: 1.2rem !important;
   line-height: 1.7;
   margin-bottom: 16px;
   position: relative;
@@ -204,7 +202,7 @@
 
 .list-main-text {
   font-family: 'Lora', serif !important;
-  font-size: 1.2rem !important; /* Increased from 1.1rem */
+  font-size: 1.2rem !important;
   font-weight: 600 !important;
   color: var(--primary-dark);
 }
@@ -229,7 +227,7 @@
   color: var(--primary-dark);
   font-weight: 700;
   font-size: 0.85rem;
-  top: 2px; /* Re-aligned for text scale */
+  top: 0px;
 }
 
 /* Layer 3: Deep Nested Bullet Layout Configuration */
@@ -255,7 +253,7 @@
   color: var(--secondary-main);
   font-weight: 700;
   font-size: 0.9rem;
-  top: 1px; /* Re-aligned for text scale */
+  top: -1px;
 }
 
 /* Component Specifications Layout Cards */
