@@ -43,7 +43,7 @@ const Contact = () => {
         </Box>
 
         <Grid container spacing={4} className="contact-links">
-          <Grid item>
+          <Grid xs="auto">
             <IconButton
               component={Link}
               href="https://github.com/thaoton1910"
@@ -53,7 +53,7 @@ const Contact = () => {
               <GitHubIcon />
             </IconButton>
           </Grid>
-          <Grid item>
+          <Grid xs="auto">
             <IconButton
               component={Link}
               href="https://linkedin.com/in/ton-nu-thanh-thao"
@@ -63,7 +63,7 @@ const Contact = () => {
               <LinkedInIcon />
             </IconButton>
           </Grid>
-          <Grid item>
+          <Grid xs="auto">
             <IconButton
               component={Link}
               href="mailto:thaoton1910@gmail.com"
