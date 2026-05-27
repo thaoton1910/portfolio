@@ -306,22 +306,37 @@ const ProjectDetail = () => {
                   <Typography variant="h3" className="section-header">
                     Gallery
                   </Typography>
-                  <Grid container spacing={2} sx={{ mt: 1 }}>
+
+                  {/* Bypass standard flex-grid properties */}
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: {
+                        xs: "1fr", // Mobile viewport stack
+                        md: "1fr 1fr", // Rigid 2-column desktop split
+                      },
+                      gap: "16px",
+                      mt: 3,
+                      width: "100%",
+                    }}
+                  >
                     {project.gallery.map((item, index) => (
-                      <Grid item xs={12} sm={4} key={index}>
-                        <Box className="gallery-card">
-                          <img
-                            src={item.url}
-                            alt={item.label}
-                            className="gallery-img"
-                          />
-                          <Typography className="gallery-label">
-                            {item.label}
-                          </Typography>
-                        </Box>
-                      </Grid>
+                      <Box
+                        key={index}
+                        className="gallery-card"
+                        sx={{ width: "100%" }}
+                      >
+                        <img
+                          src={item.url}
+                          alt={item.label}
+                          className="gallery-img"
+                        />
+                        <Typography className="gallery-label">
+                          {item.label}
+                        </Typography>
+                      </Box>
                     ))}
-                  </Grid>
+                  </Box>
                 </Box>
               )}
 
@@ -374,8 +389,8 @@ const ProjectDetail = () => {
       </Container>
 
       <Box id="contact" component="footer">
-          <Contact />
-        </Box>
+        <Contact />
+      </Box>
     </Box>
   );
 };
