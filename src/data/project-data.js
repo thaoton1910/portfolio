@@ -2,6 +2,13 @@ import project1 from "../assets/analog-only_solar_panel.jpg";
 import project2 from "../assets/aura_band.jpg";
 import project3 from "../assets/mindtress_device.png";
 
+// Analog-Only Solar Panel images
+import project1_circuit_design from "../assets/analog-only_solar_panel/circuit_design.png"
+import project1_block_diagram from "../assets/analog-only_solar_panel/block_diagram.png"
+import project1_sketch_design from "../assets/analog-only_solar_panel/sketch_design.png"
+import project1_simulation_less from "../assets/analog-only_solar_panel/simulation_less.png"
+import project1_simulation_equal from "../assets/analog-only_solar_panel/simulation_equal.png"
+
 export const projectData = {
   "analog-only_solar_panel": {
     title: "Analog-Only Solar Panel",
@@ -101,10 +108,11 @@ export const projectData = {
     ],
 
     gallery: [
-      { label: "Circuit Design", url: project1 },
-      { label: "Sketch Design", url: project1 },
-      { label: "Block Diagram", url: project1 },
-      { label: "Simulation", url: project1 },
+      { label: "Circuit Design", url: project1_circuit_design },
+      { label: "Sketch Design", url: project1_sketch_design },
+      { label: "Block Diagram", url: project1_block_diagram },
+      { label: "Simulation (LDR1 < LDR2)", url: project1_simulation_less },
+      { label: "Simulation (LDR1 = LDR2)", url: project1_simulation_equal },
     ],
 
     references: [

@@ -214,7 +214,7 @@
 
 .nested-sub-list li {
   font-family: 'Lora', serif !important;
-  font-size: 1.1rem !important; /* Increased from 1.0rem */
+  font-size: 1.1rem !important;
   line-height: 1.6;
   margin-bottom: 10px;
   position: relative;
@@ -239,7 +239,7 @@
 
 .deep-nested-sub-list li {
   font-family: 'Lora', serif !important;
-  font-size: 1.05rem !important; /* Increased from 0.95rem */
+  font-size: 1.05rem !important;
   line-height: 1.6;
   margin-bottom: 8px;
   position: relative;
@@ -284,13 +284,11 @@
 
 .component-items-ul li {
   font-family: 'Lora', serif !important;
-  font-size: 1.05rem !important; /* Increased from 0.95rem */
+  font-size: 1.05rem !important;
   line-height: 1.6;
   margin-bottom: 8px;
   color: var(--text-dark);
 }
-
-/* --- END BULLET MODIFICATIONS --- */
 
 .custom-table-container {
   background-color: var(--background) !important;
@@ -354,7 +352,7 @@
 
 .gallery-img {
   width: 100%;
-  height: 240px;
+  height: auto;
   object-fit: cover;
   display: block;
   border-bottom: 1px solid color-mix(in srgb, var(--text-dark) 15%, transparent);

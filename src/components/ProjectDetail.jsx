@@ -15,6 +15,7 @@ import {
   Paper,
   Grid,
 } from "@mui/material";
+import Masonry from "@mui/lab/Masonry";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useTheme } from "@mui/material/styles";
@@ -307,36 +308,39 @@ const ProjectDetail = () => {
                     Gallery
                   </Typography>
 
-                  {/* Bypass standard flex-grid properties */}
-                  <Box
-                    sx={{
-                      display: "grid",
-                      gridTemplateColumns: {
-                        xs: "1fr", // Mobile viewport stack
-                        md: "1fr 1fr", // Rigid 2-column desktop split
-                      },
-                      gap: "16px",
-                      mt: 3,
-                      width: "100%",
-                    }}
+                  <Masonry
+                    columns={{ xs: 1, sm: 2 }}
+                    spacing={2}
+                    sx={{ mt: 3, mx: 0, width: "100%" }}
                   >
                     {project.gallery.map((item, index) => (
                       <Box
                         key={index}
                         className="gallery-card"
-                        sx={{ width: "100%" }}
+                        sx={{
+                          width: "100%",
+                          display: "flex",
+                          flexDirection: "column",
+                          breakInside: "avoid", // Safety property to prevent image tearing in Masonry blocks
+                        }}
                       >
                         <img
                           src={item.url}
                           alt={item.label}
                           className="gallery-img"
+                          loading="lazy"
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            display: "block",
+                          }}
                         />
                         <Typography className="gallery-label">
                           {item.label}
                         </Typography>
                       </Box>
                     ))}
-                  </Box>
+                  </Masonry>
                 </Box>
               )}
 
