@@ -364,7 +364,7 @@ const ProjectDetail = () => {
                 </Box>
               )}
 
-              {/* Dynamic Academic References Component */}
+              {/* Dynamic References Component */}
               {project.references && project.references.length > 0 && (
                 <Box sx={{ mt: 6, pt: 2 }}>
                   <Typography variant="h4" className="references-header">
@@ -373,15 +373,25 @@ const ProjectDetail = () => {
                   <Box className="references-block">
                     {project.references.map((ref, idx) => (
                       <Typography key={idx} className="reference-citation-text">
-                        {ref.authorsAndYear}{" "}
-                        <a
-                          href={ref.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {ref.title}
-                        </a>{" "}
-                        {ref.publication}
+                        {ref.authorsAndYear} {ref.title}{" "}
+                        {ref.publication && (
+                          <em className="citation-publication">
+                            {ref.publication}
+                          </em>
+                        )}
+                        {ref.link && (
+                          <>
+                            {" "}
+                            <a
+                              href={ref.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="citation-retrieval-link"
+                            >
+                              {ref.link}
+                            </a>
+                          </>
+                        )}
                       </Typography>
                     ))}
                   </Box>
