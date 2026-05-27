@@ -45,4 +45,8 @@
   .nav-brand {
     font-size: 1.25rem !important;
   }
+
+  .back-link-btn {
+    padding-left: 25px !important;
+  }
 }

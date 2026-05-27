@@ -76,7 +76,13 @@ const Navbar = () => {
               onClick={() => navigate("/")}
               sx={{ fontFamily: "'Cinzel', serif", fontWeight: 700 }}
             >
-              Back to Home
+              {/* Hide on mobile */}
+              <Box
+                component="span"
+                sx={{ display: { xs: "none", md: "inline" } }}
+              >
+                Back to Home
+              </Box>
             </Button>
           ) : (
             /* 2. Full menus for the Home Page */
