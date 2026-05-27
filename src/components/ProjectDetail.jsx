@@ -21,7 +21,7 @@ import { useTheme } from "@mui/material/styles";
 
 import Contact from "./Contact";
 import Navbar from "./Navbar";
-import { projectData } from "../data/projectData";
+import { projectData } from "../data/project-data";
 import "./ProjectDetail.css";
 
 const ProjectDetail = () => {

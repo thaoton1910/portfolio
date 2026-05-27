@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import { projectData } from "../data/projectData";
+import { projectData } from "../data/project-data";
 import "./Projects.css";
 
 const Projects = () => {
