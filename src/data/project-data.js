@@ -257,12 +257,13 @@ export const projectData = {
     image: project3,
     link: "/projects/mindtress_device",
     timeline: "Apr 2024 - May 2024",
-    role: "",
+    role: "Team Leader - Arduino Software Engineer",
     technologies: [
       "Arduino IDE",
+      "Circuit Design",
+      "C++",
+      "Design & Systems Thinking (DST)",
       "Tinkercad",
-      "Autodesk Fusion 360",
-      "Algorithm Design",
     ],
     youtubeIds: ["rQ2yPGzgwn4", "Kuk6izGT7W0"],
     overview:
