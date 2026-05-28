@@ -38,7 +38,7 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <>
+      <Box className="project-detail-root">
         <Navbar />
         <Container sx={{ py: 12, textAlign: "center" }}>
           <Typography
@@ -61,7 +61,7 @@ const ProjectDetail = () => {
             Back to Home
           </Button>
         </Container>
-      </>
+      </Box>
     );
   }
 

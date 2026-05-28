@@ -1,6 +1,6 @@
 import project1 from "../assets/analog-only_solar_panel.jpg";
 import project2 from "../assets/aura_band.jpg";
-import project3 from "../assets/mindtress_device.png";
+import project3 from "../assets/mindtress_device.jpg";
 
 // Analog-Only Solar Panel images
 import project1_circuit_design from "../assets/analog-only_solar_panel/circuit_design.png";
@@ -21,6 +21,7 @@ import project2_block_diagram from "../assets/aura_band/block_diagram.png";
 import project2_dsp_pipeline from "../assets/aura_band/dsp_pipeline.png";
 
 export const projectData = {
+  // Project 1
   "analog-only_solar_panel": {
     title: "Analog-Only Solar Panel",
     subtitle: "Auto Charging and Auto Tracing to Light Source",
@@ -136,6 +137,7 @@ export const projectData = {
     ],
   },
 
+  // Project 2
   aura_band: {
     title: "AURA Band",
     subtitle:
@@ -238,89 +240,91 @@ export const projectData = {
     references: [],
   },
 
-  // mindtress: {
-  //   title: "MINDTRESS Device",
-  //   subtitle:
-  //     "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
-  //   image: project3,
-  //   timeline: "2026",
-  //   role: "Full-Stack Hardware Architect",
-  //   technologies: [
-  //     "Arduino IDE",
-  //     "Tinkercad",
-  //     "Autodesk Fusion 360",
-  //     "Algorithm Design",
-  //   ],
-  //   demoLink: "https://github.com/thaoton1910/portfolio",
-  //   youtubeId: "User 1 Video ID",
-  //   overview:
-  //     "Our product detects users' emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
+  // Project 3
+  mindtress: {
+    title: "MINDTRESS Device",
+    subtitle:
+      "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
+    image: project3,
+    link: "/projects/mindtress_device",
+    timeline: "2026",
+    role: "Full-Stack Hardware Architect",
+    technologies: [
+      "Arduino IDE",
+      "Tinkercad",
+      "Autodesk Fusion 360",
+      "Algorithm Design",
+    ],
+    demoLink: "https://github.com/thaoton1910/portfolio",
+    youtubeId: "User 1 Video ID",
+    overview:
+      "Our product detects users' emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
 
-  //   details: [
-  //     {
-  //       main: "Biometric Calibration Vectors:",
-  //       subDetails: [
-  //         "Utilizes standard empirical biological boundaries mapped via comparative literature (Madona, 2017) to classify metrics into 4 user profiles: Relaxed, Normal, Good, and Not Good.",
-  //         "Filters high exertion profiles (such as athletics) out of the stress evaluation paths to mitigate false-positive stress indicators.",
-  //       ],
-  //     },
-  //     {
-  //       main: "Somatic Stress Remediation:",
-  //       subDetails: [
-  //         "Detects adrenaline and cortisol cardiovascular stress ripples and immediately initiates localized acoustic therapy tracks.",
-  //         "Lowers physiological markers by triggering systematic relaxation reactions through targeted auditory therapy configurations.",
-  //       ],
-  //     },
-  //   ],
+    details: [
+      {
+        main: "Biometric Calibration Vectors:",
+        subDetails: [
+          "Utilizes standard empirical biological boundaries mapped via comparative literature (Madona, 2017) to classify metrics into 4 user profiles: Relaxed, Normal, Good, and Not Good.",
+          "Filters high exertion profiles (such as athletics) out of the stress evaluation paths to mitigate false-positive stress indicators.",
+        ],
+      },
+      {
+        main: "Somatic Stress Remediation:",
+        subDetails: [
+          "Detects adrenaline and cortisol cardiovascular stress ripples and immediately initiates localized acoustic therapy tracks.",
+          "Lowers physiological markers by triggering systematic relaxation reactions through targeted auditory therapy configurations.",
+        ],
+      },
+    ],
 
-  //   tableData: null,
+    tableData: null,
 
-  //   componentsList: {
-  //     Hardware: [
-  //       "Arduino Uno Development Board",
-  //       "I2C LCD Display Interface Adapter Module",
-  //       "16x2 Character Alphanumeric LCD Panel Module",
-  //       "DFRobot Mini MP3 Playback Core Electronics Module",
-  //     ],
-  //     Sensors: [
-  //       "DFRobot Gravity MAX3010 PPG Heart Rate & Oximeter Sensor Core",
-  //     ],
-  //     Software: [
-  //       "Arduino IDE (Embedded C++)",
-  //       "Tinkercad Virtualization Workbench",
-  //       "Autodesk Fusion 360 Visual Modeler",
-  //     ],
-  //   },
+    componentsList: {
+      Hardware: [
+        "Arduino Uno Development Board",
+        "I2C LCD Display Interface Adapter Module",
+        "16x2 Character Alphanumeric LCD Panel Module",
+        "DFRobot Mini MP3 Playback Core Electronics Module",
+      ],
+      Sensors: [
+        "DFRobot Gravity MAX3010 PPG Heart Rate & Oximeter Sensor Core",
+      ],
+      Software: [
+        "Arduino IDE (Embedded C++)",
+        "Tinkercad Virtualization Workbench",
+        "Autodesk Fusion 360 Visual Modeler",
+      ],
+    },
 
-  //   results: [
-  //     "Validated end-user biofeedback state monitoring loops across multiple live test participants.",
-  //     "Optimized recommendation engine lookup execution bounds to under 5 seconds from initial somatic spike anomalies.",
-  //     "Drastic pricing optimization achieved: Formulated production costing at 900,000 VNĐ, undercutting direct market equivalents priced at 3,000,000+ VNĐ.",
-  //   ],
+    results: [
+      "Validated end-user biofeedback state monitoring loops across multiple live test participants.",
+      "Optimized recommendation engine lookup execution bounds to under 5 seconds from initial somatic spike anomalies.",
+      "Drastic pricing optimization achieved: Formulated production costing at 900,000 VNĐ, undercutting direct market equivalents priced at 3,000,000+ VNĐ.",
+    ],
 
-  //   gallery: [
-  //     { label: "Circuit Layout Wiring Diagram", url: project1 },
-  //     { label: "Enclosure CAD Sketch Model", url: project1 },
-  //     { label: "Algorithmic Logic Block Diagram", url: project1 },
-  //   ],
+    gallery: [
+      { label: "Circuit Layout Wiring Diagram", url: project1 },
+      { label: "Enclosure CAD Sketch Model", url: project1 },
+      { label: "Algorithmic Logic Block Diagram", url: project1 },
+    ],
 
-  //   references: [
-  //     {
-  //       authorsAndYear: "Madona, P. (2017).",
-  //       title:
-  //         "Alat Pendeteksi Tingkat Stress Manusia Berdasarkan Suhu Tubuh, Kelembaban Kulit, Tekanan Darah dan Detak Jantung.",
-  //       publication: "Jurnal Elementer, 3(2), 31-42.",
-  //       link: "https://doi.org/10.35143/elementer.v3i2.194",
-  //     },
-  //     {
-  //       authorsAndYear:
-  //         "Widanti, N., Sumanto, B., Rosa, P., & Miftahudin, M. F. (2015).",
-  //       title:
-  //         "Stress level detection using heart rate, blood pressure, and GSR and stress therapy by utilizing infrared.",
-  //       publication:
-  //         "IEEE International Conference on Industrial Instrumentation and Control (ICIC), 275-279.",
-  //       link: "#",
-  //     },
-  //   ],
-  // },
+    references: [
+      {
+        authorsAndYear: "Madona, P. (2017).",
+        title:
+          "Alat Pendeteksi Tingkat Stress Manusia Berdasarkan Suhu Tubuh, Kelembaban Kulit, Tekanan Darah dan Detak Jantung.",
+        publication: "Jurnal Elementer, 3(2), 31-42.",
+        link: "https://doi.org/10.35143/elementer.v3i2.194",
+      },
+      {
+        authorsAndYear:
+          "Widanti, N., Sumanto, B., Rosa, P., & Miftahudin, M. F. (2015).",
+        title:
+          "Stress level detection using heart rate, blood pressure, and GSR and stress therapy by utilizing infrared.",
+        publication:
+          "IEEE International Conference on Industrial Instrumentation and Control (ICIC), 275-279.",
+        link: "#",
+      },
+    ],
+  },
 };
