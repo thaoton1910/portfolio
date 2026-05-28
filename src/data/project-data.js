@@ -290,18 +290,18 @@ export const projectData = {
 
     componentsList: {
       Hardware: [
-        "Arduino Uno Development Board",
-        "I2C LCD Display Interface Adapter Module",
-        "16x2 Character Alphanumeric LCD Panel Module",
-        "DFRobot Mini MP3 Playback Core Electronics Module",
+        "Arduino Uno",
+        "I2C LCD Adapter",
+        "LCD Display",
+        "Mini MP3 Player Module",
       ],
       Sensors: [
-        "DFRobot Gravity MAX3010 PPG Heart Rate & Oximeter Sensor Core",
+        "FRobot Gravity: MAX3010 PPG Heart Rate and Oximeter Sensor    ",
       ],
       Software: [
-        "Arduino IDE (Embedded C++)",
-        "Tinkercad Virtualization Workbench",
-        "Autodesk Fusion 360 Visual Modeler",
+        "Arduino IDE (C++ with emotion algorithm)",
+        "Tinkercad",
+        "Autodesk Fusion",
       ],
     },
 
