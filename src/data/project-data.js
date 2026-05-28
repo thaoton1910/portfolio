@@ -126,14 +126,14 @@ export const projectData = {
   },
 
   aura_band: {
-    title: "Aura Band",
+    title: "AURA Band",
     subtitle:
       "Real-Time Voice-Activated Safety Device for the Visually Impaired",
     image: project2,
     link: "/projects/aura_band",
     timeline: "Apr 2026 - May 2026",
-    role: "Team Leader",
-    technologies: ["C++"],
+    role: "Team Leader, Data Collector, AI Trainer, Debugger of FreeRTOS Code, and Hardware Setup Supporter",
+    technologies: ["Circuit design", "C++", "AI Training on Edge Impulse", "Digital Processing Pipeline (DSP)", "FreeRTOS"],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
     youtubeId: "saMwA9GqaNc",
     overview:
