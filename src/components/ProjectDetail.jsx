@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Box,
@@ -13,7 +13,6 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Grid,
 } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -31,6 +30,9 @@ const ProjectDetail = () => {
   const theme = useTheme();
 
   const project = projectData[projectName];
+
+  // State to track full-screen image preview lightbox asset
+  const [activeLightboxImage, setActiveLightboxImage] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,6 +66,82 @@ const ProjectDetail = () => {
       </Box>
     );
   }
+
+  // ==========================================================================
+  // Reusable Sub-Component Function: Renders Matrix Visualizations Dynamic Engines
+  // ==========================================================================
+  const renderEmbeddedTable = () => {
+    if (!project.tableData) return null;
+
+    const tableHasImages = project.tableData.rows.some((row) =>
+      row.some(
+        (cell) =>
+          typeof cell === "string" &&
+          /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell)
+      )
+    );
+
+    return (
+      <Box sx={{ mt: 2, mb: 3 }}>
+        <TableContainer
+          component={Paper}
+          className={`custom-table-container ${tableHasImages ? "has-images" : ""}`}
+          elevation={0}
+          sx={{ border: "1px solid rgba(0,0,0,0.12)" }}
+        >
+          <Table size="small">
+            <TableHead className="table-head-row">
+              <TableRow>
+                {project.tableData.headers.map((header, i) => {
+                  const isImageHeader =
+                    tableHasImages && i === project.tableData.headers.length - 1;
+                  return (
+                    <TableCell
+                      key={i}
+                      className={`table-header-cell ${isImageHeader ? "image-column-header" : ""}`}
+                    >
+                      <strong>{header}</strong>
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {project.tableData.rows.map((row, rowIndex) => (
+                <TableRow key={rowIndex} className="table-body-row">
+                  {row.map((cell, cellIndex) => {
+                    const isImage =
+                      typeof cell === "string" &&
+                      /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell);
+
+                    return (
+                      <TableCell
+                        key={cellIndex}
+                        className={`table-body-cell ${isImage ? "image-column-cell" : ""}`}
+                      >
+                        {isImage ? (
+                          <Box className="table-image-wrapper">
+                            <img
+                              src={cell}
+                              alt={`Visual reference for row ${rowIndex}`}
+                              className="table-inline-img"
+                              onClick={() => setActiveLightboxImage(cell)}
+                            />
+                          </Box>
+                        ) : (
+                          cell
+                        )}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    );
+  };
 
   return (
     <Box
@@ -102,9 +180,7 @@ const ProjectDetail = () => {
             <Box className="metadata-sidebar">
               <Box className="meta-block">
                 <Typography className="meta-heading">Timeline</Typography>
-                <Typography className="meta-value">
-                  {project.timeline}
-                </Typography>
+                <Typography className="meta-value">{project.timeline}</Typography>
               </Box>
               <Divider className="meta-divider" />
 
@@ -153,140 +229,47 @@ const ProjectDetail = () => {
                 {project.overview}
               </Typography>
 
-              <Typography
-                variant="h3"
-                className="section-header"
-                sx={{ mt: 4 }}
-              >
+              <Typography variant="h3" className="section-header" sx={{ mt: 4 }}>
                 Features
               </Typography>
               <Box component="ul" className="outcomes-list">
                 {project.details.map((detail, index) => (
                   <li key={index} className="nested-list-parent">
-                    <Typography className="list-main-text">
-                      {detail.main}
-                    </Typography>
+                    <Typography className="list-main-text">{detail.main}</Typography>
+
                     {/* Standard Level 2 sub-bullets */}
                     {detail.subDetails && detail.subDetails.length > 0 && (
-                      <Box
-                        component="ul"
-                        className="nested-sub-list"
-                        sx={{ mt: 1, mb: 1 }}
-                      >
-                        {detail.subDetails.map((sub, subIndex) => (
-                          <li key={subIndex}>
-                            <Typography variant="body2">
-                              {typeof sub === "object" ? sub.text : sub}
-                            </Typography>
-
-                            {/* Level 3 Deep Nested Loop */}
-                            {sub.deepDetails && sub.deepDetails.length > 0 && (
-                              <Box
-                                component="ul"
-                                className="deep-nested-sub-list"
-                                sx={{ mt: 1, mb: 1 }}
-                              >
-                                {sub.deepDetails.map((deep, deepIdx) => (
-                                  <li key={deepIdx}>
-                                    <Typography variant="body2">
-                                      {deep}
-                                    </Typography>
-                                  </li>
-                                ))}
-                              </Box>
-                            )}
-                          </li>
-                        ))}
-                      </Box>
-                    )}
-                    {/* Table injection matching schema logic bounds */}
-                    {detail.hasEmbeddedTable && project.tableData && (
-                      <Box sx={{ mt: 2, mb: 3 }}>
-                        {(() => {
-                          // 1. Dynamically detect if this specific table holds any image path assets
-                          const tableHasImages = project.tableData.rows.some(
-                            (row) =>
-                              row.some(
-                                (cell) =>
-                                  typeof cell === "string" &&
-                                  /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell),
-                              ),
-                          );
+                      <Box component="ul" className="nested-sub-list" sx={{ mt: 1, mb: 1 }}>
+                        {detail.subDetails.map((sub, subIndex) => {
+                          const isSubObject = typeof sub === "object" && sub !== null;
+                          const subTextValue = isSubObject ? sub.text : sub;
+                          const renderSubTable = isSubObject && sub.hasEmbeddedTable;
 
                           return (
-                            <TableContainer
-                              component={Paper}
-                              // 2. Conditionally append the modifier class right here
-                              className={`custom-table-container ${tableHasImages ? "has-images" : ""}`}
-                              elevation={0}
-                              sx={{ border: "1px solid rgba(0,0,0,0.12)" }}
-                            >
-                              <Table size="small">
-                                <TableHead className="table-head-row">
-                                  <TableRow>
-                                    {project.tableData.headers.map(
-                                      (header, i) => {
-                                        // Determine if this is the header for the image column
-                                        const isImageHeader =
-                                          tableHasImages &&
-                                          i ===
-                                            project.tableData.headers.length -
-                                              1;
-                                        return (
-                                          <TableCell
-                                            key={i}
-                                            className={`table-header-cell ${isImageHeader ? "image-column-header" : ""}`}
-                                          >
-                                            <strong>{header}</strong>
-                                          </TableCell>
-                                        );
-                                      },
-                                    )}
-                                  </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                  {project.tableData.rows.map(
-                                    (row, rowIndex) => (
-                                      <TableRow
-                                        key={rowIndex}
-                                        className="table-body-row"
-                                      >
-                                        {row.map((cell, cellIndex) => {
-                                          const isImage =
-                                            typeof cell === "string" &&
-                                            /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(
-                                              cell,
-                                            );
+                            <li key={subIndex}>
+                              <Typography variant="body2">{subTextValue}</Typography>
 
-                                          return (
-                                            <TableCell
-                                              key={cellIndex}
-                                              className={`table-body-cell ${isImage ? "image-column-cell" : ""}`}
-                                            >
-                                              {isImage ? (
-                                                <Box className="table-image-wrapper">
-                                                  <img
-                                                    src={cell}
-                                                    alt={`Visual reference for row ${rowIndex}`}
-                                                    className="table-inline-img"
-                                                  />
-                                                </Box>
-                                              ) : (
-                                                cell
-                                              )}
-                                            </TableCell>
-                                          );
-                                        })}
-                                      </TableRow>
-                                    ),
-                                  )}
-                                </TableBody>
-                              </Table>
-                            </TableContainer>
+                              {/* NESTED SUB-TABLE ACTION ENGINE */}
+                              {renderSubTable && renderEmbeddedTable()}
+
+                              {/* Level 3 Deep Nested Loop */}
+                              {isSubObject && sub.deepDetails && sub.deepDetails.length > 0 && (
+                                <Box component="ul" className="deep-nested-sub-list" sx={{ mt: 1, mb: 1 }}>
+                                  {sub.deepDetails.map((deep, deepIdx) => (
+                                    <li key={deepIdx}>
+                                      <Typography variant="body2">{deep}</Typography>
+                                    </li>
+                                  ))}
+                                </Box>
+                              )}
+                            </li>
                           );
-                        })()}
+                        })}
                       </Box>
-                    )}{" "}
+                    )}
+
+                    {/* Table injection directly under main parent list item if flagged */}
+                    {detail.hasEmbeddedTable && renderEmbeddedTable()}
                   </li>
                 ))}
               </Box>
@@ -315,33 +298,22 @@ const ProjectDetail = () => {
                   <Box
                     sx={{
                       display: "grid",
-                      gridTemplateColumns: {
-                        xs: "1fr",
-                        md: "1fr 1fr 1fr",
-                      },
+                      gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" },
                       gap: "24px",
                       mt: 2,
                       width: "100%",
                     }}
                   >
-                    {Object.entries(project.componentsList).map(
-                      ([category, items]) => (
-                        <Paper
-                          key={category}
-                          elevation={0}
-                          className="component-category-card"
-                        >
-                          <Typography className="component-category-title">
-                            {category}
-                          </Typography>
-                          <Box component="ul" className="component-items-ul">
-                            {items.map((item, idx) => (
-                              <li key={idx}>{item}</li>
-                            ))}
-                          </Box>
-                        </Paper>
-                      ),
-                    )}
+                    {Object.entries(project.componentsList).map(([category, items]) => (
+                      <Paper key={category} elevation={0} className="component-category-card">
+                        <Typography className="component-category-title">{category}</Typography>
+                        <Box component="ul" className="component-items-ul">
+                          {items.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </Box>
+                      </Paper>
+                    ))}
                   </Box>
                 </Box>
               )}
@@ -353,11 +325,7 @@ const ProjectDetail = () => {
                     Gallery
                   </Typography>
 
-                  <Masonry
-                    columns={{ xs: 1, sm: 2 }}
-                    spacing={2}
-                    sx={{ mt: 3, mx: 0, width: "100%" }}
-                  >
+                  <Masonry columns={{ xs: 1, sm: 2 }} spacing={2} sx={{ mt: 3, mx: 0, width: "100%" }}>
                     {project.gallery.map((item, index) => (
                       <Box
                         key={index}
@@ -366,7 +334,7 @@ const ProjectDetail = () => {
                           width: "100%",
                           display: "flex",
                           flexDirection: "column",
-                          breakInside: "avoid", // Safety property to prevent image tearing in Masonry blocks
+                          breakInside: "avoid",
                         }}
                       >
                         <img
@@ -374,15 +342,9 @@ const ProjectDetail = () => {
                           alt={item.label}
                           className="gallery-img"
                           loading="lazy"
-                          style={{
-                            width: "100%",
-                            height: "auto",
-                            display: "block",
-                          }}
+                          style={{ width: "100%", height: "auto", display: "block" }}
                         />
-                        <Typography className="gallery-label">
-                          {item.label}
-                        </Typography>
+                        <Typography className="gallery-label">{item.label}</Typography>
                       </Box>
                     ))}
                   </Masonry>
@@ -390,29 +352,28 @@ const ProjectDetail = () => {
               )}
 
               {/* Dynamic Video Player Frame Grid */}
-{project.youtubeIds && project.youtubeIds.length > 0 && (
-  <Box sx={{ mt: 6, mb: 4 }}>
-    <Typography variant="h3" className="section-header">
-      Demonstrations
-    </Typography>
-    
-    <Box className="videos-grid-container">
-      {project.youtubeIds.map((id, idx) => (
-        <Box key={idx} className="video-responsive-wrapper">
-          <iframe
-            width="853"
-            height="480"
-            src={`https://www.youtube.com/embed/${id}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title={`Project Test Validation Run - Video ${idx + 1}`}
-          />
-        </Box>
-      ))}
-    </Box>
-  </Box>
-)}
+              {project.youtubeIds && project.youtubeIds.length > 0 && (
+                <Box sx={{ mt: 6, mb: 4 }}>
+                  <Typography variant="h3" className="section-header">
+                    Demonstrations
+                  </Typography>
+                  <Box className="videos-grid-container">
+                    {project.youtubeIds.map((id, idx) => (
+                      <Box key={idx} className="video-responsive-wrapper">
+                        <iframe
+                          width="853"
+                          height="480"
+                          src={`https://www.youtube.com/embed/${id}`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title={`Project Test Validation Run - Video ${idx + 1}`}
+                        />
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
 
               {/* Dynamic References Component */}
               {project.references && project.references.length > 0 && (
@@ -425,9 +386,7 @@ const ProjectDetail = () => {
                       <Typography key={idx} className="reference-citation-text">
                         {ref.authorsAndYear} {ref.title}{" "}
                         {ref.publication && (
-                          <em className="citation-publication">
-                            {ref.publication}
-                          </em>
+                          <em className="citation-publication">{ref.publication}</em>
                         )}
                         {ref.link && (
                           <>
@@ -451,6 +410,18 @@ const ProjectDetail = () => {
           </Box>
         </Box>
       </Container>
+
+      {/* Global Interactive Cinema Lightbox view overlay */}
+      {activeLightboxImage && (
+        <Box className="lightbox-overlay" onClick={() => setActiveLightboxImage(null)}>
+          <button className="lightbox-close-btn" onClick={() => setActiveLightboxImage(null)}>
+            &times;
+          </button>
+          <Box className="lightbox-content-container" onClick={(e) => e.stopPropagation()}>
+            <img src={activeLightboxImage} alt="Fullscreen preview" className="lightbox-scaled-image" />
+          </Box>
+        </Box>
+      )}
 
       <Box id="contact" component="footer">
         <Contact />

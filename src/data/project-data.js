@@ -256,37 +256,54 @@ export const projectData = {
       "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
     image: project3,
     link: "/projects/mindtress_device",
-    timeline: "2026",
-    role: "Full-Stack Hardware Architect",
+    timeline: "Apr 2024 - May 2024",
+    role: "",
     technologies: [
       "Arduino IDE",
       "Tinkercad",
       "Autodesk Fusion 360",
       "Algorithm Design",
     ],
-    demoLink: "https://github.com/thaoton1910/portfolio",
     youtubeIds: ["rQ2yPGzgwn4", "Kuk6izGT7W0"],
     overview:
       "Our product detects users' emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
 
     details: [
       {
-        main: "Biometric Calibration Vectors:",
+        main: "Detecting the emotional status (relaxed, normal, good, and not good) based on the heart rate",
+      },
+      {
+        main: "Suggesting solutions for relaxation including meditation music",
+      },
+      {
+        main: "How emotional status relates to heart rate",
         subDetails: [
-          "Utilizes standard empirical biological boundaries mapped via comparative literature (Madona, 2017) to classify metrics into 4 user profiles: Relaxed, Normal, Good, and Not Good.",
-          "Filters high exertion profiles (such as athletics) out of the stress evaluation paths to mitigate false-positive stress indicators.",
+          {
+            text: "The table below (Stress Parameter) contains parameters used to decide whether an individual belongs to relaxed, calm, tense, and stress which are taken from a study conducted by Madona, 2017.",
+            hasEmbeddedTable: true,
+          },
+          "There is no significant difference between the digital heart rate calculated by calibrator and the values shown by the sensor (Widanti et al, 2015). Therefore, we can use the above graph to standardize the ideal stress level based on the heartbeat. Furthermore, instead of defining the stress level (relaxed, calm, tense, and stressed), we transform into relaxed, normal, good, and not good (or “you need to pay attention more to your status now”) because when someone plays sports, they can have high heart rate, so we do not conclude they are stressed just depending on heart rate.",
+          "When you experience stress, this triggers the release of hormones like adrenaline and cortisol, which increase your heart rate and blood pressure.",
         ],
       },
       {
-        main: "Somatic Stress Remediation:",
+        main: "How relaxation music alleviates stress",
         subDetails: [
-          "Detects adrenaline and cortisol cardiovascular stress ripples and immediately initiates localized acoustic therapy tracks.",
-          "Lowers physiological markers by triggering systematic relaxation reactions through targeted auditory therapy configurations.",
+          "Relaxation music has been found to lower levels of cortisol, the primary stress hormone.",
+          " When you listen to soothing music, it triggers the relaxation response in your body, which helps reduce the release of cortisol.",
         ],
       },
     ],
 
-    tableData: null,
+    tableData: {
+      headers: ["Condition", "GSR", "HR (bpm)", "BP (cmHg)", "H&T"],
+      rows: [
+        ["Relaxed", "<2", "60-70", "100/70-110/75", 36-37],
+        ["Calm", "2-4", "70-90", "110/75-120/85", 35-36],
+        ["Tense", "4-7", "90-100", "120/90-130/110", 33-35],
+        ["Stressed", ">6", ">100", "BPS > 130, BPD > 110", "<33"],
+      ],
+    },
 
     componentsList: {
       Hardware: [
