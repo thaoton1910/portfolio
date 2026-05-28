@@ -318,12 +318,12 @@ export const projectData = {
       },
       {
         authorsAndYear:
-          "Widanti, N., Sumanto, B., Rosa, P., & Miftahudin, M. F. (2015).",
+          "Widanti, N., Sumanto, B., Rosa, P., & Miftahudin, M. F. (2015, May).",
         title:
           "Stress level detection using heart rate, blood pressure, and GSR and stress therapy by utilizing infrared.",
         publication:
           "IEEE International Conference on Industrial Instrumentation and Control (ICIC), 275-279.",
-        link: "#",
+        link: "",
       },
     ],
   },
