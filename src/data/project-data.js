@@ -16,6 +16,10 @@ import project2_walk from "../assets/aura_band/walk.jpg";
 import project2_cross from "../assets/aura_band/cross.jpg";
 import project2_help from "../assets/aura_band/help.jpg";
 
+import project2_circuit_design from "../assets/aura_band/circuit_design.png";
+import project2_block_diagram from "../assets/aura_band/block_diagram.png";
+import project2_dsp_pipeline from "../assets/aura_band/dsp_pipeline.png";
+
 export const projectData = {
   "analog-only_solar_panel": {
     title: "Analog-Only Solar Panel",
@@ -185,26 +189,26 @@ export const projectData = {
     tableData: {
       headers: ["State", "LED Color", "Animation", "Buzzer", "Photo"],
       rows: [
-        ["SLEEP", "Red", "Single LED blink (200 ms)", "OFF", project2_sleep],
+        ["SLEEP", "Red", "Single LED blink (200ms)", "OFF", project2_sleep],
         [
           "AURA_WAKE",
           "Cyan",
-          "Rotating animation (40 ms/frame)",
+          "Rotating animation (40ms/frame)",
           "OFF",
           project2_aura_wake,
         ],
-        ["WALK", "Yellow", "Static all LEDs (100 ms)", "OFF", project2_walk],
+        ["WALK", "Yellow", "Static all LEDs (100ms)", "OFF", project2_walk],
         [
           "CROSS",
           "Orange",
-          "Flashing (300 ms cycle)",
+          "Flashing (300ms cycle)",
           "ON/OFF Toggle Patterns",
           project2_cross,
         ],
         [
           "HELP",
           "Red",
-          "Rapid flash (100 ms cycle)",
+          "Rapid flash (100ms cycle)",
           "Continuous Audio Alert Tone",
           project2_help,
         ],
@@ -227,8 +231,9 @@ export const projectData = {
     ],
 
     gallery: [
-      { label: "Circuit Design", url: project1 },
-      { label: "Block Diagram", url: project1 },
+      { label: "Circuit Design", url: project2_circuit_design },
+      { label: "Block Diagram", url: project2_block_diagram },
+      { label: "DSP Pipeline", url: project2_dsp_pipeline },
     ],
     references: [],
   },
