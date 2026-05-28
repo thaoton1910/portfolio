@@ -306,9 +306,10 @@ export const projectData = {
     },
 
     results: [
-      "Validated end-user biofeedback state monitoring loops across multiple live test participants.",
-      "Optimized recommendation engine lookup execution bounds to under 5 seconds from initial somatic spike anomalies.",
-      "Drastic pricing optimization achieved: Formulated production costing at 900,000 VNĐ, undercutting direct market equivalents priced at 3,000,000+ VNĐ.",
+      "Successfully detected emotional states in user testing and ran healing music ",
+      "Reduced response latency to <5 seconds for mindfulness recommendations.",
+      "Validated with 2 end-users.",
+      "Cost-optimized: our product 900.000 VNĐ vs. market competitors at <3 millions VNĐ.",
     ],
 
     gallery: [
