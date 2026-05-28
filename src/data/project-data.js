@@ -20,6 +20,15 @@ import project2_circuit_design from "../assets/aura_band/circuit_design.png";
 import project2_block_diagram from "../assets/aura_band/block_diagram.png";
 import project2_dsp_pipeline from "../assets/aura_band/dsp_pipeline.png";
 
+// MINDTRESS Device images
+import project3_circuit_design from "../assets/mindtress_device/circuit_design.png";
+import project3_block_diagram from "../assets/mindtress_device/block_diagram.png";
+
+import project3_sketch_design_side from "../assets/mindtress_device/sketch_design_side.png";
+import project3_sketch_design_back from "../assets/mindtress_device/sketch_design_back.png";
+import project3_sketch_design_top from "../assets/mindtress_device/sketch_design_top.png";
+import project3_sketch_design_front from "../assets/mindtress_device/sketch_design_front.png";
+
 export const projectData = {
   // Project 1
   "analog-only_solar_panel": {
@@ -303,9 +312,15 @@ export const projectData = {
     ],
 
     gallery: [
-      { label: "Circuit Layout Wiring Diagram", url: project1 },
-      { label: "Enclosure CAD Sketch Model", url: project1 },
-      { label: "Algorithmic Logic Block Diagram", url: project1 },
+      { label: "Circuit Design", url: project3_circuit_design },
+      { label: "Block Diagram", url: project3_block_diagram },
+      { label: "Sketch Design - Side View", url: project3_sketch_design_side },
+      { label: "Sketch Design - Back View", url: project3_sketch_design_back },
+      { label: "Sketch Design - Top View", url: project3_sketch_design_top },
+      {
+        label: "Sketch Design - Front View",
+        url: project3_sketch_design_front,
+      },
     ],
 
     references: [
