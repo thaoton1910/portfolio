@@ -102,7 +102,7 @@ const ProjectDetail = () => {
             <Box className="metadata-sidebar">
               <Box className="meta-block">
                 <Typography className="meta-heading">Timeline</Typography>
-                <Typography className="meta-value">{project.year}</Typography>
+                <Typography className="meta-value">{project.timeline}</Typography>
               </Box>
               <Divider className="meta-divider" />
 

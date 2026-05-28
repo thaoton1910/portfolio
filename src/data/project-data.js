@@ -15,7 +15,7 @@ export const projectData = {
     subtitle: "Auto Charging and Auto Tracing to Light Source",
     image: project1,
     link: "/projects/analog-only_solar_panel",
-    year: "Apr 2026 - May 2026",
+    timeline: "Apr 2026 - May 2026",
     role: "Team Leader - Hardware Design & Simulation",
     technologies: [
       "Altium",
@@ -131,7 +131,7 @@ export const projectData = {
       "Real-Time Voice-Activated Safety Device for the Visually Impaired",
     image: project2,
     link: "/projects/aura_band",
-    year: "2026",
+    timeline: "Apr 2026 - May 2026",
     role: "Team Leader",
     technologies: ["C++"],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
@@ -217,7 +217,7 @@ export const projectData = {
   //   subtitle:
   //     "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
   //   image: project3,
-  //   year: "2026",
+  //   timeline: "2026",
   //   role: "Full-Stack Hardware Architect",
   //   technologies: [
   //     "Arduino IDE",
