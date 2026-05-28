@@ -389,25 +389,30 @@ const ProjectDetail = () => {
                 </Box>
               )}
 
-              {/* Dynamic Video Player Frame */}
-              {project.youtubeId && (
-                <Box sx={{ mt: 6, mb: 4 }}>
-                  <Typography variant="h3" className="section-header">
-                    Demonstration
-                  </Typography>
-                  <Box className="video-responsive-wrapper">
-                    <iframe
-                      width="853"
-                      height="480"
-                      src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title="Project Test Validation Run"
-                    />
-                  </Box>
-                </Box>
-              )}
+              {/* Dynamic Video Player Frame Grid */}
+{project.youtubeIds && project.youtubeIds.length > 0 && (
+  <Box sx={{ mt: 6, mb: 4 }}>
+    <Typography variant="h3" className="section-header">
+      Demonstrations
+    </Typography>
+    
+    <Box className="videos-grid-container">
+      {project.youtubeIds.map((id, idx) => (
+        <Box key={idx} className="video-responsive-wrapper">
+          <iframe
+            width="853"
+            height="480"
+            src={`https://www.youtube.com/embed/${id}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={`Project Test Validation Run - Video ${idx + 1}`}
+          />
+        </Box>
+      ))}
+    </Box>
+  </Box>
+)}
 
               {/* Dynamic References Component */}
               {project.references && project.references.length > 0 && (

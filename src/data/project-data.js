@@ -37,7 +37,7 @@ export const projectData = {
       "Simulation Tooling",
     ],
     demoLink: "",
-    youtubeId: "FNNe58Oodu4",
+    youtubeIdss: ["FNNe58Oodu4"],
     overview:
       "This project shows an analog-only solar energy system that automatically tracks a light source and charges its own battery. The system uses two LDR sensors, comparators with hysteresis (LM358), a DC motor, and a motor driver (L298N). The solar panel rotates toward brighter light directions. The system is designed to operate without external power, even in cloudy conditions, using power-saving methods. The tracking resolution is less than 10 degrees, and the system avoids unstable motor vibration (jiggling).",
 
@@ -154,7 +154,7 @@ export const projectData = {
       "FreeRTOS",
     ],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
-    youtubeId: "saMwA9GqaNc",
+    youtubeIds: "saMwA9GqaNc",
     overview:
       "The AURA Band is a real-time voice-activated safety device designed to assist visually impaired pedestrians in urban environments. The system continuously captures and processes 16 kHz audio signals using an INMP441 I2S microphone, applies MFCC feature extraction, and runs a trained convolutional neural network (CNN) to classify spoken commands namely “AURA” (wake word), “WALK”, “CROSS”, “HELP”, and “CANCEL”. Upon command detection, the device produces coordinated LED patterns (rotating cyan for awake state, steady yellow for walking, flashing orange/buzzer for street crossing, rapid red for emergencies) and buzzer alerts, providing real-time feedback to both the user and surrounding traffic. The current prototype demonstrates a complete hardware-to-output pipeline with 360 training samples (6 minutes of audio), dual-core FreeRTOS execution, and reliable field validation (~87.5%).",
     details: [
@@ -241,7 +241,7 @@ export const projectData = {
   },
 
   // Project 3
-  mindtress: {
+  mindtress_device: {
     title: "MINDTRESS Device",
     subtitle:
       "Emotion Detection and Relaxation Audio Suggestion Device Based on Heart Rate",
@@ -256,7 +256,7 @@ export const projectData = {
       "Algorithm Design",
     ],
     demoLink: "https://github.com/thaoton1910/portfolio",
-    youtubeId: "User 1 Video ID",
+    youtubeIds: ["rQ2yPGzgwn4", "Kuk6izGT7W0"],
     overview:
       "Our product detects users' emotional status (relaxed, normal, good, and not good) based on heart rate and then suggests audio for relaxation or meditation.",
 

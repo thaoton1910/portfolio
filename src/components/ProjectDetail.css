@@ -444,22 +444,31 @@
 }
 
 /* Video Embed Responsive Wrapper */
+.videos-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 24px; /* Balanced spacing between grid tracks */
+  width: 100%;
+  margin-top: 16px;
+}
+
 .video-responsive-wrapper {
-  overflow: hidden;
-  padding-bottom: 56.25%;
   position: relative;
-  height: 0;
-  border-radius: 4px 24px 4px 4px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-  border: 1px solid color-mix(in srgb, var(--primary-dark) 20%, transparent);
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* Maintains standard 16:9 cinematic aspect ratio natively */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid color-mix(in srgb, var(--text-dark) 8%, transparent);
+  background-color: #000000;
 }
 
 .video-responsive-wrapper iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .sub-section-header {
@@ -566,5 +575,10 @@ color: var(--primary-dark);
   
   .metadata-sidebar {
     position: static;
+  }
+
+  .videos-grid-container {
+    grid-template-columns: 1fr; /* Drops down to stack single file on small mobile viewports */
+    gap: 16px;
   }
 }
