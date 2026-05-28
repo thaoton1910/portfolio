@@ -290,6 +290,7 @@
   color: var(--text-dark);
 }
 
+/* Inline table */
 .custom-table-container {
   background-color: var(--background) !important;
   border: 1px solid color-mix(in srgb, var(--primary-dark) 20%, transparent) !important;
@@ -308,15 +309,39 @@
 .custom-table-container .MuiTable-root,
 .custom-table-container table {
   width: 100% !important;
-  min-width: 600px !important;
-  table-layout: fixed !important;
+  min-width: 750px !important;
+  table-layout: fixed !important; 
+}
+
+.custom-table-container.has-images .MuiTable-root,
+.custom-table-container.has-images table {
+  table-layout: auto !important;
 }
 
 .table-header-cell,
 .table-body-cell {
   white-space: normal !important;
-  word-break: break-word !important;
+  word-break: keep-all !important;
   overflow-wrap: break-word !important;
+  padding: 12px 16px !important;
+  vertical-align: middle !important;
+}
+
+.custom-table-container.has-images .table-body-cell:not(.image-column-cell),
+.custom-table-container.has-images .table-header-cell:not(.image-column-header) {
+  min-width: 110px !important; /* Gives words like "CROSS" and "Orange" safe horizontal slots */
+}
+
+.custom-table-container.has-images th:nth-of-type(3),
+.custom-table-container.has-images td:nth-of-type(3) {
+  min-width: 180px !important;
+}
+
+.image-column-cell,
+.image-column-header {
+  width: 200px !important;
+  min-width: 180px !important;
+  text-align: center !important;
 }
 
 .table-head-row {
@@ -338,6 +363,39 @@
   font-family: 'Lora', serif !important;
   color: var(--text-dark) !important;
   font-size: 0.95rem !important;
+}
+
+.table-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 0;
+}
+
+.table-inline-img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  
+  /* Safe crop system: fills the container space neatly if proportions vary slightly */
+  object-fit: cover; 
+  
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--text-dark) 12%, transparent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
+  /* Smooth performance curve for hover transitions */
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Magnification hover pop out */
+.table-inline-img:hover {
+  transform: scale(1.25);
+  border-color: var(--secondary-main);
+  box-shadow: 0 8px 20px rgba(252, 159, 177, 0.4);
+  cursor: zoom-in;
+  z-index: 30;
 }
 
 /* Gallery */

@@ -3,11 +3,18 @@ import project2 from "../assets/aura_band.jpg";
 import project3 from "../assets/mindtress_device.png";
 
 // Analog-Only Solar Panel images
-import project1_circuit_design from "../assets/analog-only_solar_panel/circuit_design.png"
-import project1_block_diagram from "../assets/analog-only_solar_panel/block_diagram.png"
-import project1_sketch_design from "../assets/analog-only_solar_panel/sketch_design.png"
-import project1_simulation_less from "../assets/analog-only_solar_panel/simulation_less.png"
-import project1_simulation_equal from "../assets/analog-only_solar_panel/simulation_equal.png"
+import project1_circuit_design from "../assets/analog-only_solar_panel/circuit_design.png";
+import project1_block_diagram from "../assets/analog-only_solar_panel/block_diagram.png";
+import project1_sketch_design from "../assets/analog-only_solar_panel/sketch_design.png";
+import project1_simulation_less from "../assets/analog-only_solar_panel/simulation_less.png";
+import project1_simulation_equal from "../assets/analog-only_solar_panel/simulation_equal.png";
+
+// AURA Band images
+import project2_sleep from "../assets/aura_band/sleep.jpg";
+import project2_aura_wake from "../assets/aura_band/aura_wake.jpg";
+import project2_walk from "../assets/aura_band/walk.jpg";
+import project2_cross from "../assets/aura_band/cross.jpg";
+import project2_help from "../assets/aura_band/help.jpg";
 
 export const projectData = {
   "analog-only_solar_panel": {
@@ -133,7 +140,13 @@ export const projectData = {
     link: "/projects/aura_band",
     timeline: "Apr 2026 - May 2026",
     role: "Team Leader, Data Collector, AI Trainer, Debugger of FreeRTOS Code, and Hardware Setup Supporter",
-    technologies: ["Circuit design", "C++", "AI Training on Edge Impulse", "Digital Processing Pipeline (DSP)", "FreeRTOS"],
+    technologies: [
+      "Circuit design",
+      "C++",
+      "AI Training on Edge Impulse",
+      "Digital Processing Pipeline (DSP)",
+      "FreeRTOS",
+    ],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
     youtubeId: "saMwA9GqaNc",
     overview:
@@ -170,22 +183,30 @@ export const projectData = {
     ],
 
     tableData: {
-      headers: ["State", "LED Color", "Animation", "Buzzer Feedback"],
+      headers: ["State", "LED Color", "Animation", "Buzzer", "Photo"],
       rows: [
-        ["SLEEP", "Red", "Single LED blink (200 ms)", "OFF"],
-        ["AURA_WAKE", "Cyan", "Rotating animation (40 ms/frame)", "OFF"],
-        ["WALK", "Yellow", "Static all LEDs (100 ms)", "OFF"],
+        ["SLEEP", "Red", "Single LED blink (200 ms)", "OFF", project2_sleep],
+        [
+          "AURA_WAKE",
+          "Cyan",
+          "Rotating animation (40 ms/frame)",
+          "OFF",
+          project2_aura_wake,
+        ],
+        ["WALK", "Yellow", "Static all LEDs (100 ms)", "OFF", project2_walk],
         [
           "CROSS",
           "Orange",
           "Flashing (300 ms cycle)",
           "ON/OFF Toggle Patterns",
+          project2_cross,
         ],
         [
           "HELP",
           "Red",
           "Rapid flash (100 ms cycle)",
           "Continuous Audio Alert Tone",
+          project2_help,
         ],
       ],
     },

@@ -102,7 +102,9 @@ const ProjectDetail = () => {
             <Box className="metadata-sidebar">
               <Box className="meta-block">
                 <Typography className="meta-heading">Timeline</Typography>
-                <Typography className="meta-value">{project.timeline}</Typography>
+                <Typography className="meta-value">
+                  {project.timeline}
+                </Typography>
               </Box>
               <Divider className="meta-divider" />
 
@@ -164,7 +166,6 @@ const ProjectDetail = () => {
                     <Typography className="list-main-text">
                       {detail.main}
                     </Typography>
-
                     {/* Standard Level 2 sub-bullets */}
                     {detail.subDetails && detail.subDetails.length > 0 && (
                       <Box
@@ -198,50 +199,94 @@ const ProjectDetail = () => {
                         ))}
                       </Box>
                     )}
-
                     {/* Table injection matching schema logic bounds */}
                     {detail.hasEmbeddedTable && project.tableData && (
                       <Box sx={{ mt: 2, mb: 3 }}>
-                        <TableContainer
-                          component={Paper}
-                          className="custom-table-container"
-                          elevation={0}
-                          sx={{ border: "1px solid rgba(0,0,0,0.12)" }}
-                        >
-                          <Table size="small">
-                            <TableHead className="table-head-row">
-                              <TableRow>
-                                {project.tableData.headers.map((header, i) => (
-                                  <TableCell
-                                    key={i}
-                                    className="table-header-cell"
-                                  >
-                                    <strong>{header}</strong>
-                                  </TableCell>
-                                ))}
-                              </TableRow>
-                            </TableHead>
-                            <TableBody>
-                              {project.tableData.rows.map((row, rowIndex) => (
-                                <TableRow
-                                  key={rowIndex}
-                                  className="table-body-row"
-                                >
-                                  {row.map((cell, cellIndex) => (
-                                    <TableCell
-                                      key={cellIndex}
-                                      className="table-body-cell"
-                                    >
-                                      {cell}
-                                    </TableCell>
-                                  ))}
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </TableContainer>
+                        {(() => {
+                          // 1. Dynamically detect if this specific table holds any image path assets
+                          const tableHasImages = project.tableData.rows.some(
+                            (row) =>
+                              row.some(
+                                (cell) =>
+                                  typeof cell === "string" &&
+                                  /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell),
+                              ),
+                          );
+
+                          return (
+                            <TableContainer
+                              component={Paper}
+                              // 2. Conditionally append the modifier class right here
+                              className={`custom-table-container ${tableHasImages ? "has-images" : ""}`}
+                              elevation={0}
+                              sx={{ border: "1px solid rgba(0,0,0,0.12)" }}
+                            >
+                              <Table size="small">
+                                <TableHead className="table-head-row">
+                                  <TableRow>
+                                    {project.tableData.headers.map(
+                                      (header, i) => {
+                                        // Determine if this is the header for the image column
+                                        const isImageHeader =
+                                          tableHasImages &&
+                                          i ===
+                                            project.tableData.headers.length -
+                                              1;
+                                        return (
+                                          <TableCell
+                                            key={i}
+                                            className={`table-header-cell ${isImageHeader ? "image-column-header" : ""}`}
+                                          >
+                                            <strong>{header}</strong>
+                                          </TableCell>
+                                        );
+                                      },
+                                    )}
+                                  </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                  {project.tableData.rows.map(
+                                    (row, rowIndex) => (
+                                      <TableRow
+                                        key={rowIndex}
+                                        className="table-body-row"
+                                      >
+                                        {row.map((cell, cellIndex) => {
+                                          const isImage =
+                                            typeof cell === "string" &&
+                                            /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(
+                                              cell,
+                                            );
+
+                                          return (
+                                            <TableCell
+                                              key={cellIndex}
+                                              className={`table-body-cell ${isImage ? "image-column-cell" : ""}`}
+                                            >
+                                              {isImage ? (
+                                                <Box className="table-image-wrapper">
+                                                  <img
+                                                    src={cell}
+                                                    alt={`Visual reference for row ${rowIndex}`}
+                                                    className="table-inline-img"
+                                                  />
+                                                </Box>
+                                              ) : (
+                                                cell
+                                              )}
+                                            </TableCell>
+                                          );
+                                        })}
+                                      </TableRow>
+                                    ),
+                                  )}
+                                </TableBody>
+                              </Table>
+                            </TableContainer>
+                          );
+                        })()}
                       </Box>
-                    )}
+                    )}{" "}
                   </li>
                 ))}
               </Box>
