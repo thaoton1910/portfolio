@@ -3,6 +3,7 @@ import project2 from "../assets/aura_band.jpg";
 import project3 from "../assets/mindtress_device.jpg";
 import project4 from "../assets/mini_submarine.png";
 import project5 from "../assets/mini_boat.png";
+import project6 from "../assets/tank_toy.png";
 
 // Analog-Only Solar Panel images
 import project1_circuit_design from "../assets/analog-only_solar_panel/circuit_design.png";
@@ -398,5 +399,23 @@ export const projectData = {
     //   "Tinkercad",
     // ],
     youtubeIds: ["WxTcQTeB9eA"],
+  },
+
+  // Project 6
+  tank_toy: {
+    title: "Tank Toy",
+    subtitle: "",
+    image: project6,
+    link: "/projects/tank_toy",
+    // timeline: "Apr",
+    // role: "Team Leader",
+    // technologies: [
+    //   "Arduino IDE",
+    //   "Circuit Design",
+    //   "C++",
+    //   "Design & Systems Thinking (DST)",
+    //   "Tinkercad",
+    // ],
+    youtubeIds: ["EpvNFwHMxbM"],
   }
 };
