@@ -404,18 +404,15 @@ export const projectData = {
   // Project 6
   tank_toy: {
     title: "Tank Toy",
-    subtitle: "",
+    subtitle: "Midterm Project of Design & Systems Thinking (DST) Class Delivering to the SOS Village",
     image: project6,
     link: "/projects/tank_toy",
-    // timeline: "Apr",
-    // role: "Team Leader",
-    // technologies: [
-    //   "Arduino IDE",
-    //   "Circuit Design",
-    //   "C++",
-    //   "Design & Systems Thinking (DST)",
-    //   "Tinkercad",
-    // ],
+    timeline: "Mar 2024 - Apr 2024",
+    role: "Team Member",
+    technologies: [
+      "Circuit Design",
+      "Circuit Soldering",
+    ],
     youtubeIds: ["EpvNFwHMxbM"],
   }
 };
