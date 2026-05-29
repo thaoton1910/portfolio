@@ -49,7 +49,7 @@ export const projectData = {
       "Simulation Tooling",
     ],
     demoLink: "",
-    youtubeIdss: ["FNNe58Oodu4"],
+    youtubeIds: ["FNNe58Oodu4"],
     overview:
       "This project shows an analog-only solar energy system that automatically tracks a light source and charges its own battery. The system uses two LDR sensors, comparators with hysteresis (LM358), a DC motor, and a motor driver (L298N). The solar panel rotates toward brighter light directions. The system is designed to operate without external power, even in cloudy conditions, using power-saving methods. The tracking resolution is less than 10 degrees, and the system avoids unstable motor vibration (jiggling).",
 
@@ -368,7 +368,7 @@ export const projectData = {
   // Project 4
   mini_submarine: {
     title: "Mini Submarine",
-    subtitle: "",
+    subtitle: "From Boat to Submarine: Changing the Circuit and Predicting Sinking and Rising",
     image: project4,
     link: "/projects/mini_submarine",
     timeline: "Nov 2024 - Dec 2024",
@@ -380,6 +380,7 @@ export const projectData = {
       "C++",
       "Autodesk Fusion 360",
       "ESP32",
+      "Wi-Fi Networking",
     ],
     youtubeIds: ["UGvT6joORzM"],
   },
