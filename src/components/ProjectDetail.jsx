@@ -67,9 +67,6 @@ const ProjectDetail = () => {
     );
   }
 
-  // ==========================================================================
-  // Reusable Sub-Component Function: Renders Matrix Visualizations Dynamic Engines
-  // ==========================================================================
   const renderEmbeddedTable = () => {
     if (!project.tableData) return null;
 
