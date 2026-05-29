@@ -77,8 +77,8 @@ const ProjectDetail = () => {
       row.some(
         (cell) =>
           typeof cell === "string" &&
-          /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell)
-      )
+          /\.(jpeg|jpg|gif|png|svg|webp)$/i.test(cell),
+      ),
     );
 
     return (
@@ -94,7 +94,8 @@ const ProjectDetail = () => {
               <TableRow>
                 {project.tableData.headers.map((header, i) => {
                   const isImageHeader =
-                    tableHasImages && i === project.tableData.headers.length - 1;
+                    tableHasImages &&
+                    i === project.tableData.headers.length - 1;
                   return (
                     <TableCell
                       key={i}
@@ -178,28 +179,46 @@ const ProjectDetail = () => {
           {/* Left Column: Sidebar Metadata */}
           <Box className="column-left">
             <Box className="metadata-sidebar">
-              <Box className="meta-block">
-                <Typography className="meta-heading">Timeline</Typography>
-                <Typography className="meta-value">{project.timeline}</Typography>
-              </Box>
-              <Divider className="meta-divider" />
+              {project.timeline && (
+                <>
+                  <Box className="meta-block">
+                    <Typography className="meta-heading">Timeline</Typography>
+                    <Typography className="meta-value">
+                      {project.timeline}
+                    </Typography>
+                  </Box>
+                  <Divider className="meta-divider" />
+                </>
+              )}
 
-              <Box className="meta-block">
-                <Typography className="meta-heading">Role</Typography>
-                <Typography className="meta-value">{project.role}</Typography>
-              </Box>
-              <Divider className="meta-divider" />
+              {project.role && (
+                <>
+                  <Box className="meta-block">
+                    <Typography className="meta-heading">Role</Typography>
+                    <Typography className="meta-value">
+                      {project.role}
+                    </Typography>
+                  </Box>
+                  <Divider className="meta-divider" />
+                </>
+              )}
 
-              <Box className="meta-block">
-                <Typography className="meta-heading">Stack Tools</Typography>
-                <Box className="tech-chip-grid">
-                  {project.technologies.map((tech, i) => (
-                    <span key={i} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </Box>
-              </Box>
+              {project.technologies && project.technologies.length > 0 && (
+                <>
+                  <Box className="meta-block">
+                    <Typography className="meta-heading">
+                      Stack Tools
+                    </Typography>
+                    <Box className="tech-chip-grid">
+                      {project.technologies.map((tech, i) => (
+                        <span key={i} className="tech-tag">
+                          {tech}
+                        </span>
+                      ))}
+                    </Box>
+                  </Box>
+                </>
+              )}
 
               {project.demoLink && (
                 <>
@@ -222,57 +241,89 @@ const ProjectDetail = () => {
           {/* Right Column: Narrative Canvas content */}
           <Box className="column-right">
             <Box className="content-story">
-              <Typography variant="h3" className="section-header">
-                Overview
-              </Typography>
-              <Typography className="overview-textParagraph">
-                {project.overview}
-              </Typography>
+              {project.overview && (
+                <>
+                  <Typography variant="h3" className="section-header">
+                    Overview
+                  </Typography>
+                  <Typography className="overview-textParagraph">
+                    {project.overview}
+                  </Typography>
+                </>
+              )}
 
-              <Typography variant="h3" className="section-header" sx={{ mt: 4 }}>
-                Features
-              </Typography>
-              <Box component="ul" className="outcomes-list">
-                {project.details.map((detail, index) => (
-                  <li key={index} className="nested-list-parent">
-                    <Typography className="list-main-text">{detail.main}</Typography>
+              {project.details && project.details.length > 0 && (
+                <>
+                  <Typography
+                    variant="h3"
+                    className="section-header"
+                    sx={{ mt: 4 }}
+                  >
+                    Features
+                  </Typography>
+                  <Box component="ul" className="outcomes-list">
+                    {project.details.map((detail, index) => (
+                      <li key={index} className="nested-list-parent">
+                        <Typography className="list-main-text">
+                          {detail.main}
+                        </Typography>
 
-                    {/* Standard Level 2 sub-bullets */}
-                    {detail.subDetails && detail.subDetails.length > 0 && (
-                      <Box component="ul" className="nested-sub-list" sx={{ mt: 1, mb: 1 }}>
-                        {detail.subDetails.map((sub, subIndex) => {
-                          const isSubObject = typeof sub === "object" && sub !== null;
-                          const subTextValue = isSubObject ? sub.text : sub;
-                          const renderSubTable = isSubObject && sub.hasEmbeddedTable;
+                        {/* Standard Level 2 sub-bullets */}
+                        {detail.subDetails && detail.subDetails.length > 0 && (
+                          <Box
+                            component="ul"
+                            className="nested-sub-list"
+                            sx={{ mt: 1, mb: 1 }}
+                          >
+                            {detail.subDetails.map((sub, subIndex) => {
+                              const isSubObject =
+                                typeof sub === "object" && sub !== null;
+                              const subTextValue = isSubObject ? sub.text : sub;
+                              const renderSubTable =
+                                isSubObject && sub.hasEmbeddedTable;
 
-                          return (
-                            <li key={subIndex}>
-                              <Typography variant="body2">{subTextValue}</Typography>
+                              return (
+                                <li key={subIndex}>
+                                  <Typography variant="body2">
+                                    {subTextValue}
+                                  </Typography>
 
-                              {/* NESTED SUB-TABLE ACTION ENGINE */}
-                              {renderSubTable && renderEmbeddedTable()}
+                                  {/* NESTED SUB-TABLE ACTION ENGINE */}
+                                  {renderSubTable && renderEmbeddedTable()}
 
-                              {/* Level 3 Deep Nested Loop */}
-                              {isSubObject && sub.deepDetails && sub.deepDetails.length > 0 && (
-                                <Box component="ul" className="deep-nested-sub-list" sx={{ mt: 1, mb: 1 }}>
-                                  {sub.deepDetails.map((deep, deepIdx) => (
-                                    <li key={deepIdx}>
-                                      <Typography variant="body2">{deep}</Typography>
-                                    </li>
-                                  ))}
-                                </Box>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </Box>
-                    )}
+                                  {/* Level 3 Deep Nested Loop */}
+                                  {isSubObject &&
+                                    sub.deepDetails &&
+                                    sub.deepDetails.length > 0 && (
+                                      <Box
+                                        component="ul"
+                                        className="deep-nested-sub-list"
+                                        sx={{ mt: 1, mb: 1 }}
+                                      >
+                                        {sub.deepDetails.map(
+                                          (deep, deepIdx) => (
+                                            <li key={deepIdx}>
+                                              <Typography variant="body2">
+                                                {deep}
+                                              </Typography>
+                                            </li>
+                                          ),
+                                        )}
+                                      </Box>
+                                    )}
+                                </li>
+                              );
+                            })}
+                          </Box>
+                        )}
 
-                    {/* Table injection directly under main parent list item if flagged */}
-                    {detail.hasEmbeddedTable && renderEmbeddedTable()}
-                  </li>
-                ))}
-              </Box>
+                        {/* Table injection directly under main parent list item if flagged */}
+                        {detail.hasEmbeddedTable && renderEmbeddedTable()}
+                      </li>
+                    ))}
+                  </Box>
+                </>
+              )}
 
               {/* Benchmarks Section */}
               {project.results && (
@@ -304,16 +355,24 @@ const ProjectDetail = () => {
                       width: "100%",
                     }}
                   >
-                    {Object.entries(project.componentsList).map(([category, items]) => (
-                      <Paper key={category} elevation={0} className="component-category-card">
-                        <Typography className="component-category-title">{category}</Typography>
-                        <Box component="ul" className="component-items-ul">
-                          {items.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </Box>
-                      </Paper>
-                    ))}
+                    {Object.entries(project.componentsList).map(
+                      ([category, items]) => (
+                        <Paper
+                          key={category}
+                          elevation={0}
+                          className="component-category-card"
+                        >
+                          <Typography className="component-category-title">
+                            {category}
+                          </Typography>
+                          <Box component="ul" className="component-items-ul">
+                            {items.map((item, idx) => (
+                              <li key={idx}>{item}</li>
+                            ))}
+                          </Box>
+                        </Paper>
+                      ),
+                    )}
                   </Box>
                 </Box>
               )}
@@ -325,7 +384,11 @@ const ProjectDetail = () => {
                     Gallery
                   </Typography>
 
-                  <Masonry columns={{ xs: 1, sm: 2 }} spacing={2} sx={{ mt: 3, mx: 0, width: "100%" }}>
+                  <Masonry
+                    columns={{ xs: 1, sm: 2 }}
+                    spacing={2}
+                    sx={{ mt: 3, mx: 0, width: "100%" }}
+                  >
                     {project.gallery.map((item, index) => (
                       <Box
                         key={index}
@@ -342,9 +405,15 @@ const ProjectDetail = () => {
                           alt={item.label}
                           className="gallery-img"
                           loading="lazy"
-                          style={{ width: "100%", height: "auto", display: "block" }}
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            display: "block",
+                          }}
                         />
-                        <Typography className="gallery-label">{item.label}</Typography>
+                        <Typography className="gallery-label">
+                          {item.label}
+                        </Typography>
                       </Box>
                     ))}
                   </Masonry>
@@ -386,7 +455,9 @@ const ProjectDetail = () => {
                       <Typography key={idx} className="reference-citation-text">
                         {ref.authorsAndYear} {ref.title}{" "}
                         {ref.publication && (
-                          <em className="citation-publication">{ref.publication}</em>
+                          <em className="citation-publication">
+                            {ref.publication}
+                          </em>
                         )}
                         {ref.link && (
                           <>
@@ -413,12 +484,25 @@ const ProjectDetail = () => {
 
       {/* Global Interactive Cinema Lightbox view overlay */}
       {activeLightboxImage && (
-        <Box className="lightbox-overlay" onClick={() => setActiveLightboxImage(null)}>
-          <button className="lightbox-close-btn" onClick={() => setActiveLightboxImage(null)}>
+        <Box
+          className="lightbox-overlay"
+          onClick={() => setActiveLightboxImage(null)}
+        >
+          <button
+            className="lightbox-close-btn"
+            onClick={() => setActiveLightboxImage(null)}
+          >
             &times;
           </button>
-          <Box className="lightbox-content-container" onClick={(e) => e.stopPropagation()}>
-            <img src={activeLightboxImage} alt="Fullscreen preview" className="lightbox-scaled-image" />
+          <Box
+            className="lightbox-content-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={activeLightboxImage}
+              alt="Fullscreen preview"
+              className="lightbox-scaled-image"
+            />
           </Box>
         </Box>
       )}
