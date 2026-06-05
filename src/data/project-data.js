@@ -166,7 +166,7 @@ export const projectData = {
       "FreeRTOS",
     ],
     demoLink: "https://github.com/thaoton1910/ENG209-Final-Project",
-    youtubeIds: "saMwA9GqaNc",
+    youtubeIds: ["saMwA9GqaNc"],
     overview:
       "The AURA Band is a real-time voice-activated safety device designed to assist visually impaired pedestrians in urban environments. The system continuously captures and processes 16 kHz audio signals using an INMP441 I2S microphone, applies MFCC feature extraction, and runs a trained convolutional neural network (CNN) to classify spoken commands namely “AURA” (wake word), “WALK”, “CROSS”, “HELP”, and “CANCEL”. Upon command detection, the device produces coordinated LED patterns (rotating cyan for awake state, steady yellow for walking, flashing orange/buzzer for street crossing, rapid red for emergencies) and buzzer alerts, providing real-time feedback to both the user and surrounding traffic. The current prototype demonstrates a complete hardware-to-output pipeline with 360 training samples (6 minutes of audio), dual-core FreeRTOS execution, and reliable field validation (~87.5%).",
     details: [
