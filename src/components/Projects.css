@@ -67,7 +67,7 @@
 .project-title-banner {
   height: 18% !important;
   width: 100%;
-  background-color: color-mix(in srgb, var(--light-matcha), transparent 15%) !important;
+  background-color: color-mix(in srgb, var(--primary-main) 55%, transparent) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,7 +90,7 @@
 
 .project-card-subtitle {
   font-family: "Lora", serif !important;
-  color: color-mix(in srgb, var(--primary-dark), transparent 15%) !important;
+  color: color-mix(in srgb, var(--text-dark), transparent 15%) !important;
   font-weight: 400 !important;
   font-size: clamp(0.75rem, 1.4vw, 0.85rem) !important;
   text-align: center;
@@ -116,7 +116,12 @@
 
 /* Sweeps the text container color space on cursor activate */
 .project-card:hover .project-title-banner {
-  background-color: var(--light-strawberry) !important;
+  background-color: color-mix(in srgb, var(--light-strawberry) 30%, transparent) !important;
+}
+
+.project-card:hover .project-card-title {
+  color: var(--secondary-main) !important;
+  transition: color 0.4s ease !important;
 }
 
 @media (max-width: 800px) {

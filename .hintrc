@@ -29,7 +29,9 @@
           "-webkit-overflow-scrolling",
           "border: 1px solid color-mix(in srgb, var(--text-dark) 8%, transparent)",
           "color: color-mix(in srgb, var(--primary-dark), transparent 15%)",
-          "background-color: color-mix(in srgb, var(--light-matcha), transparent 15%)"
+          "background-color: color-mix(in srgb, var(--light-matcha), transparent 15%)",
+          "color: color-mix(in srgb, var(--text-dark), transparent 15%)",
+          "background-color: color-mix(in srgb, var(--primary-main) 55%, transparent)"
         ]
       }
     ]
